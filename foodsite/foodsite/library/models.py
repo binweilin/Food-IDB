@@ -1,3 +1,40 @@
 from django.db import models
 
-# Create your models here.
+class Region(models.Model):
+    name = models.charField(max_length=50)
+    description = models.TextField()
+    example_dishes = models.textField()
+    # how to represent recipes for region, also chefs?
+
+    def __str__(self):
+        return self.name
+
+
+class Chef(models.Model):
+    name = models.CharField(max_length=50)
+    region = models.ForeignKey(Region)
+    #recipes?
+    twitter = models.TextField()
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
+class Recipe(models.Model):
+    name = models.CharField(max_length=50)
+    region = models.ForeignKey(Region)
+    chef = models.ForeignKey(Chef)
+    instructions = models.TextField()
+    time_needed = models.CharField(max_length=10)
+    DIFFICULTY_LEVELS = (
+        ('E', 'Easy'),
+        ('M', 'Medium'),
+        ('H', 'Hard'),
+    )
+    difficulty = models.CharField(max_length=1, choices=DIFFICULTY_LEVELS)
+    description = models.TextField()
+    type = models.CharField(max_length = 10)
+
+    def __str__(self):
+        return self.name
