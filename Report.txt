@@ -1,0 +1,46 @@
+###  THIS IS A ROUGH DRAFT, CONVERT TO PDF WHEN DONE  ###
+
+
+Introduction
+ 
+Our team set off to build a website using the PythonAnywhere. Our site includes Python code to emulate the look and feel of IMDB’s web site (http://www.imdb.com); however, instead of containing information on actors, movies, and films, our website contains information on food information, including countries/regions, chefs, and recipes.
+ 
+Motivation
+ 
+We have been working to implement a web-based application making use of PythonAnywhere. The application is designed to collect various types of food over many places in the world. This website provides a user interface similar to which of IMDB. Using use an interface allows for easy navigation between food, chefs, and regions related to each other.
+ 
+ 
+Key Components
+ 
+The project utilizes widely available tools in order to simplify the process of creating and maintaining such a web based application. Many of the tools are new to group members. RESTful API, PythonAnywhere, Django templates, and UML diagrams are used. PythonAnywhere allows a web-based application to run without the need for the developer to be concerned about managing servers. PythonAnywhere also aims to minimize or eliminate the scaling issues that are common to web based applications as traffic increases. Leveraging these tools to create a fully functioning web application is an interesting and enriching experience.
+In the course of working on the project, the team was exposed and gained skills in many tools and technologies. Through the process we also gained collection experience in software engineering. One must learn to manage time effectively, plan accordingly, and cooperate with others to create a useful application.
+ 
+Difficulties and Limitations
+ 
+The team encountered several difficulties in the creation of the current state of the web application, For example, a large difficulty associated with the project was the usage of new tools that had to be learned by ourselves. 
+ 
+Other difficulty is time management. The six group members all have other time commitments, including work, other classes, families and friends, and transportation. (Please add more)
+ 
+ 
+Design
+ 
+The goal of the website is to be elegantly functional to allow for easy navigation and pleasant browsing experience. The initial design decision was focused on three core ideas: cleanly efficient layout, subdued color scheme, and clean, iconographic navigation elements. In order to meet with these goals, the website went through some iterations before landing on the current design.
+ 
+The primary factor influencing the design was a desire for a simple, orderly layout with clean lines and clear blocking; content and its consumption is king for a site like this. The design should only facilitate the easy and enjoyable consumption of the Food database.
+ 
+The next design concern was in creating a suitable color scheme.  (Please add more)
+ 
+Lastly, graphics were designed and drawn to associate with Food, Chefs, and Regions. These simple graphics are in line with the clean, simple design concept while providing a visual cue for users. (Please add more)
+ 
+UML
+ 
+The UML diagram provides a quick and easy approach for thinking about our modeling structure. The diagram shows how our date can be viewed in a 2-tier hierarchical system. The first tier corresponds to the three primary classes: Region, Chef, and Food. The second tier corresponds to the class directly referenced from the primary classes. For region, there are Image, Location, and Tradition. For Chef, there are Contact, Image, Location, Data, and Accomplishment. For Food, there are Image, Location, Video, and Recipe. (Please add more, or fix as it needs)
+ 
+Special features
+ 
+ (Please add more)
+ 
+ 
+User Interface
+ 
+(Add more based on how our web page is presented)
