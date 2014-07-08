@@ -1,9 +1,9 @@
 from django.db import models
 
 class Region(models.Model):
-    name = models.charField(max_length=50)
+    name = models.CharField(max_length=50)
     description = models.TextField()
-    example_dishes = models.textField()
+    example_dishes = models.TextField()
     # how to represent recipes for region, also chefs?
 
     def __str__(self):

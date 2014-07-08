@@ -2,6 +2,11 @@
 <html>
 	<head>
 		<title>Chefs</title>
+
+	    <!-- Favicon -->
+	    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+
 		<!-- ensures right view version -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Latest compiled and minified CSS -->
@@ -10,6 +15,8 @@
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
+        <!-- Custom css -->
+        <link rel="stylesheet" type="text/css" href="/static/regionalFoods.css" media="screen">
         <!-- scripts -->
         <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -42,18 +49,31 @@
 
 		<div class = "container">
 			<div class = "row">
-				<div class = "col-sm-4">
+				<div class = "col-sm-4" align="center">
 					<h3>Gordon Ramsay</h3>
-					<a href="/chefs/gordon_ramsay.html"><img src = "/static/Gordon-Ramsay-sheep.jpg" alt = "image not found" style = "width: 100%"></img></a>
+					<a href="/chefs/gordon_ramsay.html"><img src = "/static/chefs/gordon_ramsay.jpg" alt = "image not found" class = "img-rounded set-width"></img></a>
 					<p>Gordon Ramsay is a pimp.</p>
 				</div>
+				<div class = "col-sm-4" align="center">
+				    <h3>Paula Deen</h3>
+				    <a href="/chefs/paula_deen.html"><img src = "/static/chefs/paula_deen.jpg" alt = "image not found" class = "img-rounded set-width"></img></a>
+					<p>Butter.</p>
+				</div>
+				<div class = "col-sm-4" align="center">
+				    <h3>Yoshihiro Murata</h3>
+				    <a href="/chefs/yoshihiro_murata.html"><img src = "/static/chefs/yoshihiro_murata.jpg" alt = "image not found" class = "img-rounded set-width"></img></a>
+					<p>Yoshihiro Murata goes here.</p>
+				</div>
+			</div>
+			<div class="row">
+			    <div class="col-sm-12" style="margin-bottom:50px">
+			    </div>
 			</div>
 		</div>
 
 		<div class = "navbar navbar-default navbar-fixed-bottom">
 			<div class = "container">
 				<p class = "navbar-text pull-left">Site Built By Witty CS Pun</p>
-<!-- 				<a href = "http://youtube.com" class = "navbar-btn btn-danger btn pull-right">Subscribe on YouTube</a> -->
 			</div>
 		</div>
 	</body>
