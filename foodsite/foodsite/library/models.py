@@ -1,6 +1,10 @@
 from django.db import models
 
 class Region(models.Model):
+    """
+    A class to represent regions of the word
+    Has a one-to-many relationship with Recipe and with Chef
+    """
     name = models.CharField(max_length=50)
     description = models.TextField()
     example_dishes = models.TextField()
@@ -11,9 +15,15 @@ class Region(models.Model):
 
 
 class Chef(models.Model):
+    """
+    A class to represent famous chefs hailing from various regions of the world
+    Has a many-to-one relationship with Region
+    Has a one-to-many relationship with Recipe
+    """
     name = models.CharField(max_length=50)
     region = models.ForeignKey(Region)
     #recipes?
+    youtube = models.TextField()
     twitter = models.TextField()
     bio = models.TextField()
 
@@ -22,6 +32,10 @@ class Chef(models.Model):
 
 
 class Recipe(models.Model):
+    """
+    A class to represent recipes for regional foods
+    Has a many-to-one relationship with Region and with Chef
+    """
     name = models.CharField(max_length=50)
     region = models.ForeignKey(Region)
     chef = models.ForeignKey(Chef)
