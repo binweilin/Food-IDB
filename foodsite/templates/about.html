@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>About</title>
+	    <!-- Favicon -->
+	    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+
+		<title>Food IDB</title>
 		<!-- ensures right view version -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-	    <!-- Favicon -->
-	    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href="/static/background.css" media="screen">
+
+        <!-- Custom css -->
+        <link rel="stylesheet" type="text/css" href="/static/regionalFoods.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/static/background.css" media="screen">
 
         <!-- scripts -->
         <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 	</head>
 	<body>
+
 		<div class = "navbar navbar-inverse navbar-static-top">
 			<div class = "container">
 				<div class = "navbar-header">
 					<a href = "/" class = "navbar-brand">Food IDB</a>
+
 					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 						<span class = "icon-bar"></span>
 						<span class = "icon-bar"></span>
@@ -33,15 +39,47 @@
 
 				<div class = "collapse navbar-collapse navHeaderCollapse">
 					<ul class = "nav navbar-nav navbar-right">
-						<li><a href = "/">Home</a></li>
+						<li><a href = "/index">Home</a></li>
 						<li><a href = "/chefs">Chefs</a></li>
 						<li><a href = "/recipes">Recipes</a></li>
 						<li><a href = "/regions">Regions</a></li>
 						<li class = "active"><a href = "/about">About</a></li>
 					</ul>
 				</div>
+
+			</div>
+
+		</div>
+
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-sm-12" align="left">
+					<h3>Citations</h3>
+					<h4>Gordon Ramsay</h4>
+					<a href ="http://en.wikipedia.org/wiki/Gordon_Ramsay">http://en.wikipedia.org/wiki/Gordon_Ramsay</a>
+					<h4>Paula Deen</h4>
+					<a href="http://en.wikipedia.org/wiki/Paula_Deen">http://en.wikipedia.org/wiki/Paula_Deen</a>
+					<h4>Masaharu Morimoto</h4>
+					<a href="http://en.wikipedia.org/wiki/Masaharu_Morimoto">http://en.wikipedia.org/wiki/Masaharu_Morimoto</a>
+					<h4>Pork and Ham Pie</h4>
+					<a href="http://www.bbcgoodfood.com/recipes/4916/pork-and-ham-pie">http://www.bbcgoodfood.com/recipes/4916/pork-and-ham-pie</a>
+					<h4>Southern Fried Chicken</h4>
+					<a href="http://www.foodnetwork.com/recipes/paula-deen/southern-fried-chicken-recipe.html">http://www.foodnetwork.com/recipes/paula-deen/southern-fried-chicken-recipe.html</a>
+					<h4>Vegetable Sushi</h4>
+					<a href="http://www.foodnetwork.com/recipes/masaharu-morimoto/vegetable-sushi-recipe.html">http://www.foodnetwork.com/recipes/masaharu-morimoto/vegetable-sushi-recipe.html</a>
+					<h4>Great Britain</h4>
+					<a href="http://resources.woodlands-junior.kent.sch.uk/customs/food.html">http://resources.woodlands-junior.kent.sch.uk/customs/food.html</a>
+					<h4>Southern USA</h4>
+					<a href="http://en.wikipedia.org/wiki/Cuisine_of_the_Southern_United_States">http://en.wikipedia.org/wiki/Cuisine_of_the_Southern_United_States</a>
+					<h4>Japan</h4>
+					<a href="http://aussietaste.recipes/category/asian-cuisine/east-asian-cuisine/japanese-cuisine/">http://aussietaste.recipes/category/asian-cuisine/east-asian-cuisine/japanese-cuisine/</a><br></br>
+				</div>
+			</div>
+			<div class="row">
+			    <div style="margin-bottom:100px"></div>
 			</div>
 		</div>
+
 
 		<div class = "navbar navbar-default navbar-fixed-bottom" style="height: 28px">
 			<div class = "container">
