@@ -33,7 +33,6 @@ class Recipe(models.Model):
         ('H', 'Hard'),
     )
     difficulty = models.CharField(max_length=1, choices=DIFFICULTY_LEVELS)
-    description = models.TextField()
     type = models.CharField(max_length = 10)
 
     def __str__(self):

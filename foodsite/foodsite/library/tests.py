@@ -6,7 +6,7 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
-import models as mods
+import foodsite.library.models as mods
 
 class RegionTest(TestCase):
     def setUp(self):
