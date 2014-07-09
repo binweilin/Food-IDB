@@ -22,6 +22,7 @@ class Chef(models.Model):
     """
     name = models.CharField(max_length=50)
     region = models.ForeignKey(Region)
+    birth_date = models.DateField()
     #recipes?
     youtube = models.TextField()
     twitter = models.TextField()
