@@ -1,0 +1,162 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# cs373-idb
+**cs373-idb**
+
+# Group Country
+
+## Country Collection [/country]
+### List all Countries [GET]
++ Response 200 (application/json)
+
+        [{
+          "name": "Southern USA"
+        }, {
+          "name": "China"
+        }, {
+          "name": "Mexico"
+        }, {
+          "name": "Mexico"
+        }, {
+          "name": "Mexico"
+        }, {
+          "name": ""
+        }, {
+          "name": "Great Britain"
+        }, {
+          "name": "France"
+        }, {
+          "name": "Greece"
+        }, {
+          "name": "Japan"
+        }]
+
+## Country [/country/name/{name}]
+    A single Country object with its food
+    
+### Country by name[GET]
++ Parameters
+    + name (required, string, `China`) ... Numeric `name` of the Country to perform action with.
+
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Name
+
+    + Body
+
+            [{ "name": "America", 
+            "description": "Something about American food",
+            "location": "North America", 
+            "picture": "http://A.picture" },
+            { "name": "China", 
+            "description": "Something about Chinese food",
+            "location": "Asia", 
+            "picture": "http://C.picture" },
+            { "name": "Mexican", 
+            "description": "Something about Mexican food",
+            "location": "North America", 
+            "picture": "http://M.picture" }]
+
+
+# Group Recipe
+
+##Recipe Collection [/recipe]
+### List all Recipes [GET]
++ Response 200 (application/json)
+
+        [{
+            "name": "f1"
+        }, {
+            "name": "f2"
+        }, {
+            "name": "f3"
+        }]
+
+## Recipe [/recipe/name/{name}]
+    Steps of how to make food
+
+###Recipe by name[GET]
++ Parameters
+    + name(required, string, `pizza`) ... Numeric `name` of the Food to perform action with.
+
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Name
+
+    + Body
+
+            [{ "name": "f1", 
+            "description": "American food", 
+            "ingredients": "A", 
+            "instructions": "first..",
+            "length of time needed": "1 hour",
+            "difficulty": "easy",
+            "type": "dessert",
+            "picture": "http://f1.picture" },
+            { "name": "f2", 
+            "description": "American food", 
+            "ingredients": "A", 
+            "instructions": "first..",
+            "length of time needed": "1 hour",
+            "difficulty": "easy",
+            "type": "dessert",
+            "picture": "http://f1.picture" },
+            { "name": "f3", 
+            "description": "American food", 
+            "ingredients": "A", 
+            "instructions": "first..",
+            "length of time needed": "1 hour",
+            "difficulty": "easy",
+            "type": "dessert",
+            "picture": "http://f1.picture" }]
+            
+# Group Chef
+
+##Chef Collection [/chef]
+### List all Chefs [GET]
++ Response 200 (application/json)
+
+        [{
+            "name": "Tom"
+        }, {
+            "name": "And"
+        }, {
+            "name": "Jerry"
+        }]
+
+## Chef [/chef/name/{name}]
+    Chef of each country
+
+###Chef by name[GET]
++ Parameters
+    + name(required, string, `Tom`) ... Numeric `name` of the Chef to perform action with.
+
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Name
+
+    + Body
+
+            [{ "name": "Tom", 
+            "year born": "1990",
+            "country": "America", 
+            "twitter feed": "Tom",
+            "picture": "http://Tom.picture" },
+            { "name": "And", 
+            "country": "China", 
+            "twitter feed": "And",
+            "picture": "http://And.picture" },
+            { "name": "Jerry", 
+            "country": "Mexican", 
+            "twitter feed": "Jerry",
+            "picture": "http://Jerry.picture" }]
+
++ Response 204
+
