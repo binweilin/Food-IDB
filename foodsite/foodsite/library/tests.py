@@ -56,9 +56,9 @@ class UnitTest(TestCase):
             self.assertEqual(1, 0)
         self.assertEqual(1, 1)
 
-    def test_many_to_one(self):
+    def test_chef_region_relationship(self):
         great_britain = Region.objects.get(name = "Great Britain")
-        new_chef = Chefs.objects.create(name = "British Chef", region = great_britain)
+        new_chef = Chef.objects.create(name = "British Chef", region = great_britain)
         british_qset = Chef.objects.filter(region__name = "Great Britain")
         try:
             some_chef1 = british.qset.get(name = "British Chef")
@@ -66,14 +66,30 @@ class UnitTest(TestCase):
         except Chef.DoesNotExist:
             self.assertEqual(1, 0)
         self.assertEqual(some_chef1, new_chef)
-
-    def test_delete(self):
-        new_chef = Chefs.objects.get(name = "British Chef")
         new_chef.delete()
+
+    def test_chef_recipe_relationship(self):
+        paula_deen = Chef.objects.get(name = "Paula Deen")
+        new_recipe = Recipe.objects.create(name = "Fried Stuff", chef = paula_deen)
+        deen_qset = Recipe.objects.filter(chef__name = "Paula Deen")
         try:
-            new_chef = Chefs.objects.get(name = "British Chef")
-        except Chef.DoesNotExit:
-            self.assertEqual(1, 1)
-        self.assertEqual(1, 0)
+            some_recipe1 = deen.qset.get(name = "Fried Stuff")
+            some_recipe2 = deen_qset.get(name = "Southern Fried Chicken")
+        except Recipe.DoesNotExist:
+            self.assertEqual(1, 0)
+        self.assertEqual(some_recipe1, new_recipe)
+        new_recipe.delete()
+
+    def test_recipe_region_relationship(self):
+        japan = Region.objects.get(name = "Japan")
+        new_recipe = Recipe.objects.create(name = "Miso Soup", region = japan)
+        japan_qset = Chef.objects.filter(region__name = "Japan")
+        try:
+            some_recipe1 = japan_qset.get(name = "Miso Soup")
+            some_recipe2 = japan.qset.get(name = "Vegetable Sushi")
+        except Recipe.DoesNotExist:
+            self.assertEqual(1, 0)
+        self.assertEqual(some_recipe1, new_recipe)
+        new_recipe.delete()
 
 

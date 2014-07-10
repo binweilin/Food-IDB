@@ -7,7 +7,7 @@ class Region(models.Model):
     """
     name = models.CharField(max_length=50)
     description = models.TextField()
-    example_dishes = models.TextField()
+    google_map = models.TextField()
     # how to represent recipes for region, also chefs?
 
     def __str__(self):
@@ -41,6 +41,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=50)
     region = models.ForeignKey(Region)
     chef = models.ForeignKey(Chef)
+    ingredients = models.TextField()
     instructions = models.TextField()
     time_needed = models.CharField(max_length=10)
     DIFFICULTY_LEVELS = (
@@ -49,7 +50,7 @@ class Recipe(models.Model):
         ('H', 'Hard'),
     )
     difficulty = models.CharField(max_length=1, choices=DIFFICULTY_LEVELS)
-    type = models.CharField(max_length = 10)
+    dish_type = models.CharField(max_length = 10)
 
     def __str__(self):
         return self.name
