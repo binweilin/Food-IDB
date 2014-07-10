@@ -8,7 +8,6 @@ class Region(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
     google_map = models.TextField()
-    # how to represent recipes for region, also chefs?
 
     def __str__(self):
         return self.name
@@ -24,7 +23,6 @@ class Chef(models.Model):
     region = models.ForeignKey(Region)
     birth_place = models.CharField(max_length=50)
     birth_date = models.DateField()
-    #recipes?
     youtube = models.TextField()
     twitter = models.TextField()
     bio = models.TextField()
