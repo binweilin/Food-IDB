@@ -1,0 +1,497 @@
+EEEEEEEEEEEE
+======================================================================
+ERROR: test_chef_recipe_relationship (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_chef
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 72, in test_chef_recipe_relationship
+    paula_deen = Chef.objects.get(name = "Paula Deen")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_chef
+
+======================================================================
+ERROR: test_chef_region_relationship (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_region
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 60, in test_chef_region_relationship
+    great_britain = Region.objects.get(name = "Great Britain")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_region
+
+======================================================================
+ERROR: test_exclude (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_recipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 39, in test_exclude
+    some_recipe = Recipe.objects.get(name = "Southern Fried Chicken")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_recipe
+
+======================================================================
+ERROR: test_field_contains (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_recipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 35, in test_field_contains
+    qset = Recipe.objects.get(name__icontains="chicken")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_recipe
+
+======================================================================
+ERROR: test_filter_contains (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_recipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 30, in test_filter_contains
+    some_entree = Recipe.objects.get(name = "Southern Fried Chicken")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_recipe
+
+======================================================================
+ERROR: test_foreign_key (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_region
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 25, in test_foreign_key
+    some_region = Region.objects.get(name = "Southern USA")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_region
+
+======================================================================
+ERROR: test_incorrect_lookup (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_chef
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 46, in test_incorrect_lookup
+    some_chef = Chef.objects.get(name = "Pork and Ham Pie")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_chef
+
+======================================================================
+ERROR: test_multi_field_filter (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_recipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 54, in test_multi_field_filter
+    some_recipe = qset.get(name = "Pork and Ham Pie")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_recipe
+
+======================================================================
+ERROR: test_recipe_region_relationship (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_region
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 84, in test_recipe_region_relationship
+    japan = Region.objects.get(name = "Japan")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_region
+
+======================================================================
+ERROR: test_str_chef (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_chef
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 17, in test_str_chef
+    some_chef = Chef.objects.get(name = "Gordon Ramsay")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_chef
+
+======================================================================
+ERROR: test_str_recipe (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_recipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 21, in test_str_recipe
+    some_recipe = Recipe.objects.get(name = "Southern Fried Chicken")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_recipe
+
+======================================================================
+ERROR: test_str_region (foodsite.library.tests.UnitTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: library_region
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 13, in test_str_region
+    some_region = Region.objects.get(name = "Japan")
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 710, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python3.3/dist-packages/django/db/models/sql/compiler.py", line 781, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.3/dist-packages/django/utils/six.py", line 490, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.3/dist-packages/django/db/backends/sqlite3/base.py", line 450, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: library_region
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.037s
+
+FAILED (errors=12)
+Creating test database for alias 'default'...
+Destroying test database for alias 'default'...
