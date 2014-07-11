@@ -1,0 +1,187 @@
+commit a27a6b5bec8de40749067aea57af9e31f14a5ba9
+Merge: 59d3eeb 7820806
+Author: Samantha Cooper <skc853@cs.utexas.edu>
+Date:   Thu Jul 10 21:50:20 2014 -0500
+
+    Merge branch 'master' of https://github.com/jimmybradford/cs373-idb
+
+commit 59d3eeb4f3ac6ec3ad34cead6f1b69210a617273
+Author: Samantha Cooper <skc853@cs.utexas.edu>
+Date:   Thu Jul 10 21:49:07 2014 -0500
+
+    Added report
+
+commit 7820806091c92a790a68f39b7c6380b9e297c7b3
+Author: skcooper <skn.cooper@gmail.com>
+Date:   Thu Jul 10 21:34:47 2014 -0500
+
+    Delete tests.out
+
+commit e9d861f7c399a444576729fc7c9d6b903a5c0d4f
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Fri Jul 11 02:34:32 2014 +0000
+
+    Added test.out
+
+commit dcfcedb0382c0454e62ad304856933e33ea42879
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Fri Jul 11 02:32:40 2014 +0000
+
+    Added models.html
+
+commit c68f98df4e7f0a8aca104598a4a1a7552ac6a252
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Fri Jul 11 01:24:44 2014 +0000
+
+    Added models.html
+
+commit a2c8eed0304bd0aafef45d9951c25718fd5d3390
+Merge: 3b763c4 3051d2f
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 23:24:13 2014 +0000
+
+    Merge branch 'master' of https://github.com/jimmybradford/cs373-idb
+
+commit 3b763c49d963e65e126ae97f3c75c50b5e5693b0
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 23:23:56 2014 +0000
+
+    Changed some glyphicons, added to about page
+
+commit d8352f31e7fc3701853d0b0b9f064d9f36ce967b
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 22:42:48 2014 +0000
+
+    site done again
+
+commit 3051d2f60eceee1f2c0497b3b7bcc632fc89d8fd
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 16:46:26 2014 -0500
+
+    recipes api done
+
+commit e484dccf004c8f2f075724d5cc7682d1373a7db4
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 16:16:06 2014 -0500
+
+    more stuff api
+
+commit 7d34f4145baabb627f3ebd8a4fc45bcbb8ce402d
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 15:58:58 2014 -0500
+
+    Regions kinda done
+
+commit e918d2bcdb7e0297ba928c48a7d5f1adcec79612
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 20:52:35 2014 +0000
+
+    Added some unit tests
+
+commit 54a7a914a8c77cc4a30a1f190a3a65ad68398080
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 15:32:53 2014 -0500
+
+    api chefs almost done
+
+commit 80a3c0d4c747af31bdeb6e2521e95ac899bd4410
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 15:23:02 2014 -0500
+
+    moreeeee
+
+commit cc81ce388db4195e39b3aff021486ba1e2cb18fa
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 15:12:51 2014 -0500
+
+    more
+
+commit 8549c5b94c21e197a54bc507d64581e617682f20
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 15:03:23 2014 -0500
+
+    MORE
+
+commit 7212ec6a360dfdd71a1d5a5fb5a91bde7f8e34d6
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 14:40:12 2014 -0500
+
+    more
+
+commit ecf565d4160210a13bd295657e5dc4f8a0092ef0
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 14:35:43 2014 -0500
+
+    more stuff
+
+commit 53e6afc7bc65be78786aee0e7390c2950fbaee7f
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 14:11:09 2014 -0500
+
+    more data added to api
+
+commit 0606350706071b847e11e1568b81abfd0d1d88df
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 10 18:09:16 2014 +0000
+
+    Added some unit tests, fixes #19
+
+commit eb951655b4afe12a2e37151dcf7f466e3d41d37d
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 9 23:41:40 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 81bfdfaaa828135708dfb1844f09b5ec9b5da783
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 9 22:35:22 2014 +0000
+
+    Site Done, I think.
+
+commit 6e8ff830a73fe1573aabfeab9cf75bce97b7c389
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 9 20:38:28 2014 +0000
+
+    Completed 9 unit tests, fixes issue #2, fixes issue #3
+
+commit 842731163ab9176d7acce24319470c7be4f65bcf
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 9 19:47:08 2014 +0000
+
+    Added comments to model classes, and added unit tests
+
+commit b965a96a3af7fe84f45a2c8b4e5cfe725889989c
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 9 19:19:10 2014 +0000
+
+    Most initial pages are filled in, fixes #17, fixes #18
+
+commit 0a690dc0a70b5c699a158099edf86af4f81e927f
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Tue Jul 8 20:40:11 2014 +0000
+
+    Fixes #12. Lots of pictures added, favicon added, pictures formatted and postioned, and various other small things
+
+commit c3706c9ccc4d2920492c71c4a1b5ccaf780d158f
+Author: Samantha Cooper <skc853@cs.utexas.edu>
+Date:   Mon Jul 7 16:00:58 2014 -0500
+
+    Adding report rough draft
+
+commit 3113e422075cfe906d0d44ff6cb073c13611c99d
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Mon Jul 7 20:51:28 2014 +0000
+
+    Added some stuff for models, added a few more html pages
+
+commit 94e7e51a541f699169bcc7f9e4f679aa68241625
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Mon Jul 7 20:17:49 2014 +0000
+
+    Added some files necessary for django
+
+commit 49dc6fb162c1e7ed40f538c4c955f0813df6dac9
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Mon Jul 7 19:38:58 2014 +0000
+
+    first commit
