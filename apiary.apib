@@ -32,12 +32,12 @@ HOST: http://www.google.com
           "name": "Japan"
         }]
 
-## Country [/country/name/{name}]
+## Country [/country/PK/{PK}]
     A single Country object with its food
     
-### Country by name[GET]
+### Country by PK[GET]
 + Parameters
-    + name (required, string, `China`) ... Numeric `name` of the Country to perform action with.
+    + PK (required, integer, `0`) ... Numeric `PK` of the Country to perform action with.
 
 + Response 200 (application/json)
 
@@ -47,7 +47,8 @@ HOST: http://www.google.com
 
     + Body
 
-            [{ "name": "Southern USA", 
+            [{ "PK": 0,
+            "name": "Southern USA", 
             "description": "Southern USA food is derived from many cultures. 
                     Many items such as squash, tomatoes, corn (and its derivatives, 
                     including grits), as well as the practice of deep pit barbecuing 
@@ -59,7 +60,8 @@ HOST: http://www.google.com
                     and melons, as well as the spices can be attributed to peoples 
                     of African origin.",
             "google_map": "https://www.google.com/maps/place/United+States/@36.5834655,-93.1601172,4z/data=!4m2!3m1!1s0x54eab584e432360b:0x1c3bb99243deb742"},
-            { "name": "China", 
+            { "PK": 1,
+            "name": "China", 
             "description": "Rice is China's staple food. The Chinese word for rice 
                     is "fan" which also means "meal." Rice may be served with any meal, and 
                     is eaten several times a day. Scallions, bean sprouts, cabbage, and gingerroot
@@ -68,7 +70,8 @@ HOST: http://www.google.com
                     a lot of meat, pork and chicken are the most commonly eaten meats. Vegetables 
                     play a central role in Chinese cooking, too.",
             "google_map": "https://www.google.com/maps/place/China/@35.8574708,104.1361118,4z/data=!3m1!4b1!4m2!3m1!1s0x31508e64e5c642c1:0x951daa7c349f366f"},
-            { "name": "Mexico", 
+            { "PK": 2,
+            "name": "Mexico", 
             "description": "Mexican cuisine is primarily a fusion of indigenous 
                     Mesoamerican cooking with European, especially Spanish, elements added 
                     after the Spanish conquest of the Aztec Empire in the 16th century. The 
@@ -78,14 +81,16 @@ HOST: http://www.google.com
                     chicken, goat and sheep), dairy products (especially cheese) and various 
                     herbs and lots of spices.",
             "google_map": "https://www.google.com/maps/place/Mexico/@23.6266557,-102.5375005,5z/data=!3m1!4b1!4m2!3m1!1s0x84043a3b88685353:0xed64b4be6b099811"},
-            { "name": "Austria", 
+            { "PK": 3,
+            "name": "Austria", 
             "description": "Austrian cuisine is a style of cuisine native to Austria and 
                     composed of influences from throughout the former Austro-Hungarian Empire.
                     Regional influences from Italy, Hungary, Bohemia, Germany and the Balkans 
                     have had an effect on Austrian cooking, and in turn this fusion of styles
                     was influential throughout the Empire.",
             "google_map": "https://www.google.com/maps/place/Austria/@47.6964719,13.3457347,7z/data=!3m1!4b1!4m2!3m1!1s0x476d079b259d2a7f:0x1012d47bdde4c1af"},
-            { "name": "Italy", 
+            { "PK": 4,
+            "name": "Italy", 
             "description": "Italian cuisine is characterized by its simplicity, with many
                     dishes having only four to eight ingredients.[8] Italian cooks rely chiefly 
                     on the quality of the ingredients rather than on elaborate preparation. 
@@ -93,20 +98,23 @@ HOST: http://www.google.com
                     however, have proliferated with variations throughout the country. In 2013 
                     Italian cuisine was ranked by CNN as the best cuisine in the world.",
             "google_map": "https://www.google.com/maps/place/Italy/@41.29246,12.5736108,6z/data=!3m1!4b1!4m2!3m1!1s0x12d4fe82448dd203:0xe22cf55c24635e6f"},
-            { "name": "India", 
+            { "PK": 5,
+            "name": "India", 
             "description": "Indian cuisine encompasses a wide variety of regional cuisines 
                     native to India. Given the range of diversity in soil type, climate and occupations, 
                     these cuisines vary significantly from each other and use locally available spices,
                     herbs, vegetables and fruits. Indian food is also heavily influenced by religious
                     and cultural choices and traditions.",
             "google_map": "https://www.google.com/maps/place/India/@21.1289955,82.7792201,5z/data=!3m1!4b1!4m2!3m1!1s0x30635ff06b92b791:0xd78c4fa1854213a6"},
-            { "name": "Great Britain", 
+            { "PK": 6,
+            "name": "Great Britain", 
             "description": "British food has traditionally been based on beef, lamb, pork, 
                     chicken and fish and generally served with potatoes and one other vegetable. The
                     most common and typical foods eaten in Britain include the sandwich, fish and 
                     chips, pies like the cornish pasty, trifle and roasts dinners.",
             "google_map": "https://www.google.com/maps/place/United+Kingdom/@55.3617609,-3.4433238,6z/data=!3m1!4b1!4m2!3m1!1s0x25a3b1142c791a9:0xc4f8a0433288257a"},
-            { "name": "France", 
+            { "PK": 7, 
+            "name": "France", 
             "description": "Guillaume Tirel Taillevent, a court chef, wrote Le Viandier, one 
                     of the earliest recipe collections of medieval France. During that time, French 
                     cuisine was heavily influenced by Italian cuisine. In the 17th century, chefs 
@@ -116,14 +124,16 @@ HOST: http://www.google.com
                     different roles regionally and nationally, with many variations and appellation
                     d'origine contrôlée (AOC) (regulated appellation) laws.",
             "google_map": "https://www.google.com/maps/place/France/@46.71109,1.7191036,6z/data=!3m1!4b1!4m2!3m1!1s0xd54a02933785731:0x6bfd3f96c747d9f7"},
-            { "name": "Greece", 
+            { "PK": 8,
+            "name": "Greece", 
             "description": "Greek cuisine is a Mediterranean cuisine. Contemporary Greek cookery 
                     makes wide use of olive oil, vegetables and herbs, grains and bread, wine, fish, and 
                     various meats, including lamb, poultry, rabbit and pork. Also important are olives, 
                     cheese, eggplant (aubergine), zucchini (courgette), and yogurt. Greek desserts are 
                     characterized by the dominant use of nuts and honey. Some dishes use filo pastry.",
             "google_map": "https://www.google.com/maps/place/Greece/@38.2749497,23.8102717,7z/data=!3m1!4b1!4m2!3m1!1s0x135b4ac711716c63:0x363a1775dc9a2d1d"},
-            { "name": "Japan", 
+            { "PK": 9,
+            "name": "Japan", 
             "description": "The traditional food of Japan is based on rice with miso soup and other 
                     dishes, each in its own utensil, with an emphasis on seasonal ingredients. The side dishes 
                     often consist of fish, pickled vegetables, and vegetables cooked in broth. Fish is common 
@@ -160,12 +170,12 @@ HOST: http://www.google.com
             "name": "Vegetable Sushi"
         },]
 
-## Recipe [/recipe/name/{name}]
+## Recipe [/recipe/PK/{PK}]
     Steps of how to make food
 
 ###Recipe by name[GET]
 + Parameters
-    + name(required, string, `pizza`) ... Numeric `name` of the Food to perform action with.
+    + PK (required, integer, `0`) ... Numeric PK of the Food to perform action with.
 
 + Response 200 (application/json)
 
@@ -175,7 +185,10 @@ HOST: http://www.google.com
 
     + Body
 
-            [{ "name": "Southern Fried Chicken", 
+            [{ "PK": 0,
+            "FK_region" : 0,
+            "FK_region" : 0,
+            "name": "Southern Fried Chicken", 
             "ingredients": "3 eggs 1/3 cup water
                     About 1 cup hot red pepper sauce (recommended: Texas Pete)
                     2 cups self-rising flour
@@ -200,7 +213,10 @@ HOST: http://www.google.com
             "time needed": "1 hour",
             "difficulty": "E",
             "type": "entree"},
-            { "name": "Dry-Fried Eggplant", 
+            { "PK": 1,
+            "FK_region" : 1,
+            "FK_region" : 1,
+            "name": "Dry-Fried Eggplant", 
             "ingredients": " Vegetable oil, for frying
                             1/2 to 1 teaspoon hot (chinese) chili powder
                             1/2 to 1 teaspoon hot paprika
@@ -208,8 +224,6 @@ HOST: http://www.google.com
                             Water
                             1/2 cup cornstarch
                             Leaves and tender stems from 4 to 6 stems cilantro, coarsely chopped", 
-            "region": China,
-            "chef": Peter Chang,
             "instructions": "Heat at least 4 inches of oil in a large, heavy-bottomed pot over medium-high heat until the oil reaches 350 degrees.
                     
                     Place a wire rack over several layers of paper towels.
@@ -228,21 +242,25 @@ HOST: http://www.google.com
             "time needed": "~20 min",
             "difficulty": "E",
             "type": "side"},
-            { "name": "Pico de Gallo", 
+            { "PK": 2,
+            "FK_region" : 2,
+            "FK_chef" : 2,
+            "name": "Pico de Gallo", 
             "ingredients": "1 1/2 pounds yellow or red tomatoes, seeded and chopped
                             1 small onion, chopped
                             1/2 cup chopped fresh cilantro leaves
                             3 tablespoons fresh lime juice
                             2 serrano chiles*, seeded and minced
                             Pinch kosher salt and fresh ground black pepper", 
-            "region": "Mexico",
-            "chef": "Marcela Valladolid",
             "instructions": "Add all the ingredients to a medium bowl, and toss to combine.
                             Cover and chill until ready to serve. This salsa can be made 4 hours ahead.",
             "time needed": "40 min",
             "difficulty": "E",
             "type": "side"},
-            { "name": "Beef Goulash", 
+            { "PK": 3,
+            "FK_region" : 3,
+            "FK_chef" : 3,
+            "name": "Beef Goulash", 
             "ingredients": "2 tablespoons extra virgin olive oil
                             4 cups onions, thinly sliced
                             1 tablespoon sugar
@@ -272,8 +290,6 @@ HOST: http://www.google.com
                             Salt
                             Pepper
                             2 ounces unsalted butter", 
-            "region": "Austria",
-            "chef": "Wolfgang Puck",
             "instructions": "In a large saute pan, heat the olive oil and saute the onions and sugar until caramelized. Add the garlic and caraway seed. 
             
                             Cook for 1 minute. Add the sweet and sharp paprika, marjoram, thyme, and bay leaf. Saute another minute, until fragrant. Add the tomato paste. 
@@ -294,7 +310,10 @@ HOST: http://www.google.com
             "time needed": "4 hr 5 min",
             "difficulty": "H",
             "type": "entree"},
-            { "name": "Chicken Piccata", 
+            { "PK": 4,
+            "FK_region" : 4,
+            "FK_chef" : 4,
+            "name": "Chicken Piccata", 
             "ingredients": "2 skinless and boneless chicken breasts, butterflied and then cut in half
                             Sea salt and freshly ground black pepper
                             All-purpose flour, for dredging
@@ -304,8 +323,6 @@ HOST: http://www.google.com
                             1/2 cup chicken stock
                             1/4 cup brined capers, rinsed
                             1/3 cup fresh parsley, chopped", 
-            "region": "Italy",
-            "chef": "Giada De Laurentiis",
             "instructions": "Season chicken with salt and pepper. Dredge chicken in flour and shake off excess.
 
                             In a large skillet over medium high heat, melt 2 tablespoons of butter with 3 tablespoons olive oil. When butter and oil start to sizzle, add 2 pieces of chicken and cook for 3 minutes. When chicken is browned, flip and cook other side for 3 minutes. Remove and transfer to plate. Melt 2 more tablespoons butter and add another 2 tablespoons olive oil. When butter and oil start to sizzle, add the other 2 pieces of chicken and brown both sides in same manner. Remove pan from heat and add chicken to the plate.
@@ -314,7 +331,10 @@ HOST: http://www.google.com
             "time needed": "40 min",
             "difficulty": "E",
             "type": "entree"},
-            { "name": "Chicken Tikka Masala", 
+            { "PK": 5,
+            "FK_region" : 5,
+            "FK_chef" : 5,
+            "name": "Chicken Tikka Masala", 
             "ingredients": "Marinade:
                             1 cup plain yogurt, whisked until smooth
                             3 tablespoons Ginger-Garlic Paste, recipe follows (or 1 tablespoon grated fresh ginger and 3 cloves garlic put through a garlic press or finely minced)
@@ -341,8 +361,6 @@ HOST: http://www.google.com
                             1/2 cup cloves garlic, whole
                             1/2 cup fresh ginger, peeled, cut into 1/2-inch slices
                             1/4 cup canola oil", 
-            "region": "India",
-            "chef": "Aarti Parti",
             "instructions": "Sauce:
                             For the marinade: In a large bowl, mix together the marinade ingredients. Add the chicken and toss to coat. Marinate at least 30 minutes, or in the refrigerator up to overnight.
                             
@@ -361,7 +379,10 @@ HOST: http://www.google.com
             "time needed": "1 hr 25 min",
             "difficulty": "E",
             "type": "entree"},
-            { "name": "Pork and Ham Pie", 
+            { "PK": 6,
+            "FK_region" : 6,
+            "FK_chef" : 6,
+            "name": "Pork and Ham Pie", 
             "ingredients": "6 eggs
                             400g minced pork
                             200g good-quality pork sausagemeat
@@ -375,8 +396,6 @@ HOST: http://www.google.com
                             450g plain flour, plus extra for dusting
                             4 tbsp milk
                             1 egg, beaten", 
-            "region": "Great Britain",
-            "chef": "Gordon Ramsay",
             "instructions": "Bring a large pan of salted water to the boil, then boil the eggs for exactly 7½ mins. Cool in cold water, peel and set aside. Tip the pork, sausagemeat, ham, sage and onion into a large bowl. Season generously and add a few shakes of Tabasco. Mix well with your hands until completely combined. Take about 1 tbsp of the mix, shape into a small burger and fry in a pan. Taste for seasoning. Slightly over-seasoned is perfect.
                             Melt a few tbsps lard, brush a 1-litre terrine dish with an even layer of the melted fat, then dust with flour. To make the pastry, tip the flour into a bowl with 2 tsp salt. Put the lard and milk into a pan with 150ml water, then heat until the lard has completely melted. Pour into the flour and beat with a wooden spoon until combined. Tip onto the surface and knead until it all comes together.
                             Cut a piece of baking parchment to fit the bottom and long sides of the terrine dish with some hanging over the edge. Take about two-thirds of the pastry dough and shape it into a rectangle roughly the width and length of the dish. Lay the dough into the terrine and, using your fingers, press it into the bottom, the corners and up the sides of the dish until it comes to the top and hangs over the rim a little.
@@ -387,7 +406,10 @@ HOST: http://www.google.com
             "time needed": "2 hr 45 min",
             "difficulty": "H",
             "type": "entree"},
-            { "name": "Crepes Suzette", 
+            { "PK": 7, 
+            "FK_region" : 7,
+            "FK_chef" : 7,
+            "name": "Crepes Suzette", 
             "ingredients": "CRÊPES
                             2 large eggs
                             3/4 cup all-purpose flour
@@ -397,8 +419,6 @@ HOST: http://www.google.com
                             1/3 cup cold water
                             1 tablespoon canola oil
                             1 tablespoon melted unsalted butter, plus more butter for the skillet", 
-            "region": "France",
-            "chef": "Jacques Pepin",
             "instructions": "In a medium bowl, whisk together the eggs, flour, milk, salt and sugar until smooth; the batter will be thick. Whisk in the water, oil and melted butter.
                             Heat a 6-inch crêpe pan or nonstick skillet and rub with a little butter. Add 2 tablespoons of the batter and tilt the skillet to distribute the batter evenly, pouring any excess batter back into the bowl. Cook over moderately high heat until the edges of the crêpe curl up and start to brown, 45 seconds. Flip the crêpe and cook for 10 seconds longer, until a few brown spots appear on the bottom. Tap the crêpe out onto a baking sheet . Repeat with the remaining batter to make 12 crêpes, buttering the skillet a few times as necessary.
                             In a mini food processor, blend the 6 tablespoons of butter with 1/4 cup of the sugar and the orange zest. With the machine on, gradually add the orange juice until incorporated.
@@ -407,7 +427,10 @@ HOST: http://www.google.com
             "time needed": "45 min",
             "difficulty": "M",
             "type": "dessert"},
-            { "name": "Tzatziki", 
+            { "PK": 8,
+            "FK_region" : 8,
+            "FK_chef" : 8,
+            "name": "Tzatziki", 
             "ingredients": "1 pound (1 pint) plain yogurt (whole milk or low fat)
                             1 hothouse cucumber, unpeeled and seeded
                             1 tablespoon plus 1/2 teaspoon kosher salt
@@ -418,14 +441,15 @@ HOST: http://www.google.com
                             1 1/2 teaspoons minced garlic
                             1 1/2 teaspoons minced fresh dill
                             Pinch freshly ground black pepper", 
-            "region": "Greece",
-            "chef": "Ina Garten",
             "instructions": "Place the yogurt in a cheesecloth or paper towel-lined sieve and set it over a bowl. Grate the cucumber and toss it with 1 tablespoon of kosher salt; place it in another sieve, and set it over another bowl. Place both bowls in the refrigerator for 3 to 4 hours so the yogurt and cucumber can drain.
                             Transfer the thickened yogurt to a large bowl. Squeeze as much liquid from the cucumber as you can and add the cucumber to the yogurt. Mix in the sour cream, vinegar, lemon juice, olive oil, garlic, dill, 1/2 teaspoon salt, and pepper. You can serve it immediately, but I prefer to allow the tzatziki to sit in the refrigerator for a few hours for the flavors to blend. Serve chilled or at room temperature.",
             "time needed": "19 min",
             "difficulty": "E",
             "type": "side"},
-            { "name": "Vegetable Sushi", 
+            { "PK": 9,
+            "FK_region" : 9,
+            "FK_chef" : 9,
+            "name": "Vegetable Sushi", 
             "ingredients": "For the rice:
                             3 cups short-grain Japanese rice, rinsed
                             1/3 cup rice vinegar
@@ -442,8 +466,6 @@ HOST: http://www.google.com
                             Wasabi paste, for spreading and serving
                             1 romaine lettuce heart
                             Pickled ginger, for serving", 
-            "region": "Japan",
-            "chef": "Masaharu Morimoto",
             "instructions": "Make the rice. Combine the rice and 3 1/4 cups water in a rice cooker and cook according to the manufacturer's instructions. A rice cooker is the best way to get perfect sticky-firm rice, but if you don't have one, just use a saucepan.
 
                             1. Fold in the vinegar. Combine the vinegar, sugar and 1 teaspoon salt in a saucepan over medium heat, stirring to dissolve the sugar. Transfer the cooked rice to a large wooden bowl (traditionally, a wooden tub). Drizzle a quarter of the vinegar mixture over a wooden spoon or spatula onto the rice. Fold the rice gently with the spoon to cool it and break up any clumps; be careful not to smash the grains. Fold in the remaining vinegar mixture and let the rice sit 5 minutes.
@@ -489,12 +511,12 @@ HOST: http://www.google.com
             "name": "Masaharu Morimoto"
         },]
 
-## Chef [/chef/name/{name}]
+## Chef [/chef/PK/{PK}]
     Chef of each country
 
-###Chef by name[GET]
+###Chef by PK[GET]
 + Parameters
-    + name(required, string, `Tom`) ... Numeric `name` of the Chef to perform action with.
+    + PK (required, integer, `0`) ... Numeric PK of the Food to perform action with.
 
 + Response 200 (application/json)
 
@@ -504,8 +526,9 @@ HOST: http://www.google.com
 
     + Body
 
-            [{ "name": "Paula Deen", 
-            "region": "Southern USA,
+            [{ "PK": 0,
+            "FK_region" : 0,
+            "name": "Paula Deen", 
             "birth_place": Albany, Georgia, U.S.,
             "birth_date": "19 January 1947",
             "youtube":"https://www.youtube.com/watch?v=ogknIyLESHc",
@@ -514,8 +537,9 @@ HOST: http://www.google.com
                     Deen resides in Savannah, Georgia, where she owns and operates The Lady & Sons 
                     restaurant with her sons, Jamie and Bobby Deen. She has published fourteen cookbooks. 
                     Though married in 2004 to Michael Groover, she uses the surname Deen, from her first marriage},
-            { "name": "Peter Chang", 
-            "region": "China",
+            { "PK": 1,
+            "FK_region" : 1,
+            "name": "Peter Chang", 
             "birth_place":,
             "birth_date": "1990",
             "youtube": "http://www.youtube.com/watch?v=dsffikBdjz8",
@@ -526,16 +550,18 @@ HOST: http://www.google.com
                     to work as the chef at the Chinese Embassy in Washington, D.C.[1] In the past, Chang has disappeared
                     and left restaurants, inspiring a group of fans to follow his movement in Internet discussion boards, 
                     such as DonRockwell.com and Chowhound."},
-            { "name": "Marcela Valladolid", 
-            "region": "Mexico",
+            { "PK": 2,
+            "FK_region" : 2,
+            "name": "Marcela Valladolid", 
             "birth_place": "San Diego, California",
             "birth_date": "19 July 1978",
             "youtube": "http://www.youtube.com/watch?v=OePrgATo0f4",
             "twitter": "https://twitter.com/chefmarcela",
             "bio": "Marcela Luz Valladolid is an American chef and author. She is the host of the Food Network television 
                     series Mexican Made Easy, and a co-host of the Food Network television series The Kitchen."},
-            { "name": "Wolfgang Puck", 
-            "region": "Austria",
+            { "PK": 3,
+            "FK_region" : 3,            
+            "name": "Wolfgang Puck", 
             "birth_place": "Sankt Veit an der Glan, Austria",
             "birth_date": "8 July 1949",
             "youtube":"http://www.youtube.com/watch?v=Gc6B_N4eRoA",
@@ -543,8 +569,9 @@ HOST: http://www.google.com
             "bio": "Wolfgang Johannes Puck (born Wolfgang Johannes Topfschnig; July 8, 1949) is an Austrian-born American 
                     celebrity chef, restaurateur, and occasional actor. Wolfgang Puck restaurants, catering services, cookbooks 
                     and licensed products are run by Wolfgang Puck Companies, with three divisions."},
-            { "name": "Giada De Laurentiis", 
-            "region": "Italy",
+            { "PK": 4,
+            "FK_region" : 4,
+            "name": "Giada De Laurentiis", 
             "birth_place": "Rome, Italy",
             "birth_date": "22 August 1970",
             "youtube":"http://www.youtube.com/watch?v=nI8DlJ_4MV0",
@@ -554,8 +581,9 @@ HOST: http://www.google.com
                     program Giada at Home. She also appears regularly as a contributor and guest co-host on NBC's Today. De Laurentiis
                     is the founder of the catering business GDL Foods.[1] She is a winner of the Daytime Emmy Award for Outstanding 
                     Lifestyle Host,[2] and in 2012 was inducted into the Culinary Hall of Fame."},
-            { "name": "Aarti Sequeira", 
-            "region": "India",
+            { "PK": 5,
+            "FK_region" : 5,
+            "name": "Aarti Sequeira", 
             "birth_place": "Mumbai, India",
             "birth_date": "19 August 1978",
             "youtube": "http://www.youtube.com/watch?v=3LFFpAD15Y8",
@@ -565,8 +593,9 @@ HOST: http://www.google.com
                     Aarti Party premiered on the network on August 22, 2010. She had previously worked as a CNN news producer and in
                     2008 started the online cooking variety show Aarti Paarti. She currently hosts another cooking show, Taste in 
                     Translation,[1] in which she seeks the most popular dishes from around the world."},
-            { "name": "Gordon Ramsay", 
-            "region": "Great Britain",
+            { "PK": 6,
+            "FK_region" : 6,
+            "name": "Gordon Ramsay", 
             "birth_place": "Johnstone, Renfrewshire, Scotland",
             "birth_date": "8 November 1966",
             "youtube": "https://www.youtube.com/watch?v=fETZCWvzkWM",
@@ -577,8 +606,9 @@ HOST: http://www.google.com
                     Ramsay is known for presenting TV programmes about competitive cookery and food, such as the British series Hell's 
                     Kitchen, The F Word, and Ramsay's Kitchen Nightmares, along with the American versions of Hell's Kitchen, Kitchen 
                     Nightmares, MasterChef, and Masterchef Junior."},
-            { "name": "Jacques Pepin", 
-            "region": "France",
+            { "PK": 7,
+            "FK_region" : 7,
+            "name": "Jacques Pepin", 
             "birth_place": "Bourg-en-Bresse, France",
             "birth_date": "18 December 1935",
             "youtube": "http://www.youtube.com/watch?v=Ysm-LEEb_K4",
@@ -586,8 +616,9 @@ HOST: http://www.google.com
             "bio": "Jacques Pépin (born December 18, 1935)[1] is an internationally recognized French chef, television personality, 
                     and author working in the United States. Since the late 1980s, he has appeared on French and American television and 
                     written an array of cookbooks that have become best sellers."},
-            { "name": "Michael Psilakis", 
-            "region": "Greece",
+            { "PK": 8,
+            "FK_region" : 8,
+            "name": "Michael Psilakis", 
             "birth_place": "New York City, NY",
             "birth_date": "1968",
             "youtube":"http://www.youtube.com/watch?v=mIYCManR3Ec",
@@ -595,8 +626,9 @@ HOST: http://www.google.com
             "bio":"Michael Psilakis is a Greek-American New York City restaurateur best known for his appearances on television shows 
                     including Ultimate Recipe Showdown, Iron Chef America, The Best Thing I Ever Ate and No Kitchen Required.[1] He had 
                     owned and operated a number of popular restaurants around New York and has cooked for President Barack Obama at the White House."},
-            { "name": "Masaharu Morimoto", 
-            "region": "Japan",
+            { "PK": 9,
+            "FK_region" : 9,
+            "name": "Masaharu Morimoto", 
             "birth_place": "Hiroshima, Japan",
             "birth_date": "1955",
             "youtube": "https://www.youtube.com/watch?v=WmaTpRuQFTE",
@@ -619,4 +651,6 @@ HOST: http://www.google.com
                     in Iron Chef America, a spinoff from the original Japanese Iron Chef series. "}]
 
 + Response 204
+
+
 
