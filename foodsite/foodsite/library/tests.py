@@ -10,6 +10,7 @@ from foodsite.library.models import Region, Chef, Recipe
 
 class UnitTest(TestCase):
     def test_str_region(self):
+        print("inside first test")
         some_region = Region.objects.get(name = "Japan")
         self.assertEqual(str(some_region), "Japan")
 
@@ -91,5 +92,3 @@ class UnitTest(TestCase):
             self.assertEqual(1, 0)
         self.assertEqual(some_recipe1, new_recipe)
         new_recipe.delete()
-
-

@@ -108,3 +108,29 @@ ls
 python3 manage.py syncdb
 python manage.py syncdb
 exit
+ls
+cd foodsite/
+l
+ls
+./manage.py test
+cd foodsite/
+ls
+cd library/
+ls
+./tests
+python3 tests.py
+cd ../../
+ls
+python3 manage.py
+./manage.py
+python3
+./manage.py shell
+ls
+python3 manage.py test --keepdb
+python3 manage.py --keepdb test
+./manage.py test --keepdb
+./manage.py --keepdb test
+ls
+cd ..
+git pull
+exit

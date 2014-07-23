@@ -1,9 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 from foodsite.library import views
+# from api import ChefResource
 
 from django.contrib import admin
 admin.autodiscover()
+
+# chef_resource = ChefResource()
 
 urlpatterns = patterns('',
     # Examples:
@@ -34,5 +37,6 @@ urlpatterns = patterns('',
     (r'^recipes/(?P<recipe_name_url>\w+)/$', views.recipe),
     (r'^chefs/(?P<chef_name_url>\w+)/$', views.chef),
     (r'^regions/(?P<region_name_url>\w+)/$', views.region),
+    # (r'^api/', include(chef_resource.urls)),
 
 )
