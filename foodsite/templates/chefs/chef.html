@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rango</title>
+    </head>
+
+    <body>
+        <h1>{{ chef_name }}</h1>
+        {% if chef %}
+            {% if recipes %}
+            <ul>
+                {% for recipe in recipes %}
+                <li><a href="{{ recipe.url }}">{{ recipe.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>No recipes currently in category.</strong>
+            {% endif %}
+        {% else %}
+            The specified category {{ chef_name }} does not exist!
+        {% endif %}
+    </body>
+</html>

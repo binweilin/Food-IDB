@@ -1,0 +1,177 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--    <head>-->
+<!--        <title>Rango</title>-->
+<!--    </head>-->
+
+<!--    <body>-->
+<!--        <h1>{{ chef_name }}</h1>-->
+<!--        {% if chef %}-->
+<!--            {% if recipes %}-->
+<!--            <ul>-->
+<!--                {% for recipe in recipes %}-->
+<!--                <li><a href="{{ recipe.url }}">{{ recipe.name }}</a></li>-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+<!--            {% else %}-->
+<!--                <strong>No recipes currently in category.</strong>-->
+<!--            {% endif %}-->
+<!--        {% else %}-->
+<!--            The specified category {{ chef_name }} does not exist!-->
+<!--        {% endif %}-->
+<!--    </body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ chef_name }}</title>
+
+	    <!-- Favicon -->
+	    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+		<!-- ensures right view version -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+		<!-- Custom css -->
+        <!--<link rel="stylesheet" type="text/css" href="/static/regionalFoods.css" media="screen">-->
+        <link rel="stylesheet" type="text/css" href="/static/background.css" media="screen">
+
+        <!-- scripts -->
+        <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            var changeHref = function(id){
+                var obj = document.getElementById(id);
+                var current = obj.getAttribute("href");
+                obj.href = current.replace(/\s/g, "_");
+            };
+        </script>
+
+	</head>
+	<body>
+
+		<div class = "navbar navbar-inverse navbar-static-top">
+			<div class = "container">
+				<div class = "navbar-header">
+					<a href = "/" class = "navbar-brand">Food IDB</a>
+
+					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+						<span class = "icon-bar"></span>
+						<span class = "icon-bar"></span>
+						<span class = "icon-bar"></span>
+					</button>
+				</div>
+				<div class = "collapse navbar-collapse navHeaderCollapse">
+					<ul class = "nav navbar-nav navbar-right">
+						<li><a href = "/">Home</a></li>
+						<li class = "active"><a href = "/chefs">Chefs</a></li>
+						<li><a href = "/recipes">Recipes</a></li>
+						<li><a href = "/regions">Regions</a></li>
+						<li><a href = "/about">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class = "container">
+			<div class = "row">
+
+        		<div class = "col-lg-8" align="left">
+        			<div class = "panel panel-default">
+    			        <div class = "panel-body">
+        					<h2>{{ chef_name }}</h2>
+        					<img src = "{{chef.image}}" alt="image not found" class = "img-rounded" style ="width: 100%"></img>
+        					<h3>Bio</h3>
+        					<p>{{chef.bio}}</p>
+        				</div>
+        			</div>
+    			</div>
+	    		<div class = "col-lg-4" align="left">
+	    		 	<div class = "panel panel-default">
+    			        <div class = "panel-body">
+    			            <div class="page-header">
+				                <h3>The Chef</h3>
+				            </div>
+                            <h4>Born</h4>
+				            <p>{{chef.birth_date}}</p>
+                            <h4>Place of birth</h4>
+                            <p>{{chef.birth_place}}</p>
+                            <h4>Cooking style</h4>
+                            <p>{{chef.style}}</p>
+                            <h4>Region</h4>
+				            <div class = "list-group">
+				                <a href="/regions/{{ chef.region.name}}" id="{{ chef.region.name}}" class="list-group-item">
+                                    <script>changeHref("{{chef.recipe.region}}");</script>
+                                    <h5><span class="glyphicon glyphicon-globe" style="margin-right:2ch"></span>{{ chef.region.name }}</h5>
+                                </a>
+				            </div>
+                            <h4>Recipes</h4>
+				            <div class = "list-group">
+                                {% for recipe in recipes %}
+                                    <a href="/recipes/{{ recipe.name }}" id="{{ recipe.name }}" class="list-group-item">
+                                        <script>changeHref("{{recipe.name}}");</script>
+                                        <h5><span class="glyphicon glyphicon-cutlery" style="margin-right:2ch" ></span>{{ recipe.name }}</h5>
+                                    </a>
+                                {% endfor %}
+				            </div>
+			            </div>
+			        </div>
+		        </div>
+	        </div>
+		</div>
+		<div class="container">
+		    <div class="row">
+                <div class="col-lg-8">
+                    <div class = "panel panel-default">
+    			        <div class = "panel-body">
+                    		<!-- 4:3 aspect ratio -->
+                            <div class="embed-responsive embed-responsive-4by3">
+                              <iframe class="embed-responsive-item" src="{{chef.youtube}}"></iframe>
+                            </div>
+			            </div>
+			        </div>
+                </div>
+                <div class="col-lg-4">
+                    <a class="twitter-timeline" href="{{chef.twitter_link}}" data-widget-id="{{chef.twitter_id}}">Tweets by {{ chef.name }}</a>
+                    <script>
+                        /* The bang is to execute an anonymous javascript function. Any unary operator will work as well */
+                        !function(d,s,id){
+                            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https'; // get first script object and see if our website starts with http or https
+                            /* Adds a script with it's source equal to src before the first script tag in the html if a tag with id equal to id not existing */
+                            if(!d.getElementById(id)){
+                                js=d.createElement(s);
+                                js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js,fjs);
+                            }
+                        }(document,"script","twitter-wjs");
+                    </script>
+                </div>
+		    </div>
+		    <div class="row">
+		        <div style="margin-bottom:100px"></div>
+		    </div>
+		</div>
+
+
+
+
+
+
+
+
+
+		<div class = "navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text pull-left">Site Built By Witty CS Pun</p>
+
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -6,6 +6,7 @@ class Region(models.Model):
     Has a one-to-many relationship with Recipe and with Chef
     """
     name = models.CharField(max_length=50)
+    image = models.TextField()
     description = models.TextField()
     google_map = models.TextField()
 
@@ -20,11 +21,14 @@ class Chef(models.Model):
     Has a one-to-many relationship with Recipe
     """
     name = models.CharField(max_length=50)
+    image = models.TextField()
     region = models.ForeignKey(Region)
     birth_place = models.CharField(max_length=50)
     birth_date = models.DateField()
+    style = models.TextField()
     youtube = models.TextField()
-    twitter = models.TextField()
+    twitter_link = models.TextField()
+    twitter_id = models.TextField()
     bio = models.TextField()
 
     def __str__(self):
@@ -37,11 +41,12 @@ class Recipe(models.Model):
     Has a many-to-one relationship with Region and with Chef
     """
     name = models.CharField(max_length=50)
+    image = models.TextField()
     region = models.ForeignKey(Region)
     chef = models.ForeignKey(Chef)
     ingredients = models.TextField()
     instructions = models.TextField()
-    time_needed = models.CharField(max_length=10)
+    time_needed = models.CharField(max_length=15)
     DIFFICULTY_LEVELS = (
         ('E', 'Easy'),
         ('M', 'Medium'),

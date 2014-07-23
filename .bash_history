@@ -72,3 +72,39 @@ cd foodsite/library/
 ls
 pydoc -w models
 exit
+ls
+pip3.3 install --user https://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-1.1.6.tar.gz
+pip3.3 install --user https://github.com/davispuh/MySQL-for-Python-3/archive/1.0.tar.gz
+ls
+./manage.py syncdb
+python manage.py sql library
+python manage.py sql foodsite
+python3 manage.py sql foodsite
+python3 manage.py sql library
+
+python3 manage.py sql library
+./manage.py syncdb
+python3 manage.py sql library
+from foodsite.library.models import Region
+from foodsite.foodsite.library.models import Region
+ls
+from library.models import Region
+python3
+cd foodsite/
+ls
+from library.models import Region
+python3
+exit
+python3 manage.py syncdb
+use regionalfoods$default
+mysql
+./mysql
+mysql shell
+exit
+ls
+cd foodsite
+python3 manage.py runserver
+ls
+python3 manage.py syncdb
+python manage.py syncdb
+exit
