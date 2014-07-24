@@ -37,6 +37,7 @@ urlpatterns = patterns('',
     (r'^recipes/(?P<recipe_name_url>\w+)/$', views.recipe),
     (r'^chefs/(?P<chef_name_url>\w+)/$', views.chef),
     (r'^regions/(?P<region_name_url>\w+)/$', views.region),
-    # (r'^api/', include(chef_resource.urls)),
-
+    (r'^api/chef/(?P<chef_pk>\w+)?', views.get_chef),
+    (r'^api/region/(?P<region_pk>\w+)?', views.get_region),
+    (r'^api/recipe/(?P<recipe_pk>\w+)?', views.get_recipe),
 )

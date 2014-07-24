@@ -1,7 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+from django.core import serializers
 from foodsite.library.models import Chef, Recipe, Region
+
 
 def index2(request):
     #return HttpResponse("Rango says hello world!")
@@ -13,6 +15,42 @@ def index2(request):
     for chef in chef_list:
         chef.url = chef.name.replace(' ', '_')
     return render_to_response('index2.html', context_dict, context)
+
+def get_chef(request, chef_pk):
+    chef_pk = str(chef_pk)
+    chefs = Chef.objects
+    if (chef_pk == "None"):
+        items = chefs.all()
+    elif chefs.filter(pk=chef_pk):
+        items = chefs.filter(pk=chef_pk)
+    else:
+        raise Http404
+    items = serializers.serialize('json', items, indent=0)
+    return HttpResponse(items, content_type='application/json')
+
+def get_region(request, region_pk):
+    region_pk = str(region_pk)
+    regions = Region.objects
+    if (region_pk == "None"):
+        items = regions.all()
+    elif (regions.filter(pk=region_pk)):
+        items = regions.filter(pk=region_pk)
+    else:
+        raise Http404
+    items = serializers.serialize('json', items, indent=0)
+    return HttpResponse(items, content_type='application/json')
+
+def get_recipe(request, recipe_pk):
+    recipe_pk = str(recipe_pk)
+    recipes = Recipe.objects
+    if (recipe_pk == "None"):
+        items = recipes.all()
+    elif (recipes.filter(pk=recipe_pk)):
+        items = recipes.filter(pk=recipe_pk)
+    else:
+        raise Http404
+    items = serializers.serialize('json', items, indent=0)
+    return HttpResponse(items, content_type='application/json')
 
 
 def chef(request, chef_name_url):

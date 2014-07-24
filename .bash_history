@@ -134,3 +134,22 @@ ls
 cd ..
 git pull
 exit
+ls
+cd foodsite/
+ls
+test.out
+vim test.out 
+ls
+./manage.py test
+./manage.py shell
+python3 foodsite/library/tests.py
+python3 tests.py
+python3 library/tests.py
+python3 foodsite.library/tests.py
+python3 foodsite/library/tests.py
+./manage.py shell
+python3 foodsite/library/tests.py
+./manage.py shell
+coverage3 shell
+coverage3
+./manage.py shell
