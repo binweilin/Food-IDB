@@ -153,3 +153,13 @@ python3 foodsite/library/tests.py
 coverage3 shell
 coverage3
 ./manage.py shell
+ls
+cd
+ls
+ls -a
+git pull
+git add*
+git add *
+git commit -am "Implemented API and added API tests"
+git commit -am "Implemented API and added API tests, fixes #24, fixes #26"
+git push

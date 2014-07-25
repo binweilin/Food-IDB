@@ -1,3 +1,64 @@
+commit b31d037012581029ebf3187434593cedfa735a5c
+Author: Samantha Cooper <skc853@cs.utexas.edu>
+Date:   Fri Jul 25 14:00:13 2014 -0500
+
+    Adding revised technical report, fixes #28, fixes # 29
+
+commit 7a54bace0285fc5ed418511a711dce6b180f1e90
+Author: skcooper <skn.cooper@gmail.com>
+Date:   Thu Jul 24 18:26:31 2014 -0500
+
+    Update apiary.apib
+
+commit 8a902414b72b67caa70692626dd5cb00e69e412b
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Jul 24 17:14:40 2014 +0000
+
+    Implemented API and added API tests
+
+commit 39b95d9ec4dfde22e7d7e7aed0fbbbb68d3cd19b
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 23 19:06:31 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 78bf076275a5a7f11708a17e0bf1fe56a0cb7867
+Merge: 03c20a7 7b518e9
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 23 22:03:09 2014 +0000
+
+    Merge branch 'master' of https://github.com/jimmybradford/cs373-idb
+
+commit 03c20a74015165656f108035834c0c77f02fee8f
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 23 22:02:09 2014 +0000
+
+    another commit
+
+commit 7b518e9ba11ce9063c6bdf2346963285c2e464ba
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 23 13:41:36 2014 -0500
+
+    MORE HEADACHES
+
+commit b1d6ad0136519d1ab9b07f0639ab7f191957f660
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 23 13:40:17 2014 -0500
+
+    Apiary.io was poorly designed...HEADACHES.
+
+commit 136d0563a596dd29078afa0494ffe92af2e6d1ff
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Wed Jul 23 02:34:43 2014 +0000
+
+    almost done
+
+commit cb9721650d3fc4e8410bc4217078dff7a176b45f
+Author: Samantha Cooper <skc853@cs.utexas.edu>
+Date:   Thu Jul 10 22:07:34 2014 -0500
+
+    Added log
+
 commit a27a6b5bec8de40749067aea57af9e31f14a5ba9
 Merge: 59d3eeb 7820806
 Author: Samantha Cooper <skc853@cs.utexas.edu>

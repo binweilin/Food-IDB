@@ -4,18 +4,6 @@ from django.shortcuts import render_to_response
 from django.core import serializers
 from foodsite.library.models import Chef, Recipe, Region
 
-
-def index2(request):
-    #return HttpResponse("Rango says hello world!")
-    context = RequestContext(request)
-    chef_list = Chef.objects.all()
-    context_dict = {'chefs': chef_list}
-    recipe_list = Recipe.objects.all()
-    context_dict = {'recipes': recipe_list}
-    for chef in chef_list:
-        chef.url = chef.name.replace(' ', '_')
-    return render_to_response('index2.html', context_dict, context)
-
 def get_chef(request, chef_pk):
     chef_pk = str(chef_pk)
     chefs = Chef.objects
