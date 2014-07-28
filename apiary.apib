@@ -818,36 +818,36 @@ HOST: http://www.google.com
                 }
             }]
     
-    ## Chef [api/chef/{PK}]
-        Chef of each country
-    
-    ###Chef by PK[GET]
-    + Parameters
-        + PK (required, integer, `0`) ... Numeric PK of the Food to perform action with.
-    
-    + Response 200 (application/json)
-    
-        + Header
-    
-                X-My-Header: The Name
-    
-        + Body
-    
-                        [{  
-                "pk": 1, 
-                "model": "library.chef", 
-                "fields": {
-                    "bio": "Wolfgang Johannes Puck (born Wolfgang Johannes Topfschnig; July 8, 1949) is an Austrian-born American \r\n                    celebrity chef, restaurateur, and occasional actor. Wolfgang Puck restaurants, catering services, cookbooks \r\n                    and licensed products are run by Wolfgang Puck Companies, with three divisions.", 
-                    "birth_date": "1949-07-08", 
-                    "name": "Wolfgang Puck", 
-                    "youtube": "http://www.youtube.com/embed/Gc6B_N4eRoA", 
-                    "region": 1, 
-                    "style": "California, French, and Fusion", 
-                    "twitter_link": "https://twitter.com/WolfgangBuzz", 
-                    "image": "/static/chefs/wolfgang_puck.jpg", 
-                    "birth_place": "Sankt Veit an der Glan, Austria", 
-                    "twitter_id": "492022886987603968"
-                }
+## Chef [/api/chef/{PK}]
+    Chef of each country
+
+###Chef by PK[GET]
++ Parameters
+    + PK (required, integer, `0`) ... Numeric PK of the Food to perform action with.
+
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Name
+
+    + Body
+
+                    [{  
+            "pk": 1, 
+            "model": "library.chef", 
+            "fields": {
+                "bio": "Wolfgang Johannes Puck (born Wolfgang Johannes Topfschnig; July 8, 1949) is an Austrian-born American \r\n                    celebrity chef, restaurateur, and occasional actor. Wolfgang Puck restaurants, catering services, cookbooks \r\n                    and licensed products are run by Wolfgang Puck Companies, with three divisions.", 
+                "birth_date": "1949-07-08", 
+                "name": "Wolfgang Puck", 
+                "youtube": "http://www.youtube.com/embed/Gc6B_N4eRoA", 
+                "region": 1, 
+                "style": "California, French, and Fusion", 
+                "twitter_link": "https://twitter.com/WolfgangBuzz", 
+                "image": "/static/chefs/wolfgang_puck.jpg", 
+                "birth_place": "Sankt Veit an der Glan, Austria", 
+                "twitter_id": "492022886987603968"
+            }
             }, {
                 "pk": 2, 
                 "model": "library.chef", 
