@@ -6,7 +6,7 @@ HOST: http://www.google.com
 
 # Group Country
 
-## Country Collection [/country]
+## Country Collection [/api/region]
 ### List all Countries [GET]
 + Response 200 (application/json)
 
@@ -102,7 +102,7 @@ HOST: http://www.google.com
             }
         }]
 
-## Country [/country/PK/{PK}]
+## Country [/api/region/{PK}]
     A single Country object with its food
     
 ### Country by PK[GET]
@@ -211,7 +211,7 @@ HOST: http://www.google.com
             
 # Group Recipe
 
-##Recipe Collection [/recipe]
+##Recipe Collection [/api/recipe]
 ### List all Recipes [GET]
 + Response 200 (application/json)
 
@@ -357,7 +357,7 @@ HOST: http://www.google.com
             }
         }]
 
-## Recipe [/recipe/PK/{PK}]
+## Recipe [/api/recipe/{PK}]
     Steps of how to make food
 
 ###Recipe by name[GET]
@@ -672,7 +672,7 @@ HOST: http://www.google.com
             
 # Group Chef
 
-##Chef Collection [/chef]
+##Chef Collection [/api/chef]
 ### List all Chefs [GET]
 + Response 200 (application/json)
 
@@ -818,7 +818,7 @@ HOST: http://www.google.com
                 }
             }]
     
-    ## Chef [/chef/PK/{PK}]
+    ## Chef [api/chef/{PK}]
         Chef of each country
     
     ###Chef by PK[GET]
