@@ -9,23 +9,180 @@
 		<!-- ensures right view version -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
         <!-- Custom css -->
         <link rel="stylesheet" type="text/css" href="/static/regionalFoods.css" media="screen">
         <link rel="stylesheet" type="text/css" href="/static/background.css" media="screen">
 
         <!-- scripts -->
-        <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
+
+
+            var chef_fields = ['bio', 'birth_date', 'birth_place', 'style'];
+            var recipe_fields = ['instructions', 'ingredients', 'time_needed', 'difficulty', 'dish_type'];
+            var region_fields = [ 'description'];
+
+
+
+            var findAttr = function(type, searchText, booleanType, name){
+                var arr;
+                if(type === "chef")
+                    arr = chef_fields;
+                else if(type === "recipe")
+                    arr = recipe_fields;
+                else if(type === "region")
+                    arr = region_fields;
+                else
+                    return;
+
+                if(booleanType === "OR")
+                    searchText = searchText.split(" ");
+                var found = false;
+                for(var i in arr){
+                    var elem = arr[i];
+                    var idAid = elem.split("_");
+                    if(idAid.length > 1)
+                        idAid = idAid[1];
+                    else
+                        idAid = idAid[0];
+                    var id = idAid[0].toUpperCase() + idAid.substring(1) + name;
+                    if(booleanType === "OR"){
+                        id = "or" + id;
+                        for(var x in searchText){
+                            var w = searchText[x];
+                            var t = document.getElementById(id);
+                            if(t.innerHTML.toLowerCase().indexOf(w.toLowerCase()) > -1){
+                                t.style.display = "block";
+                                found = true;
+                                break;
+                            }
+                        }
+                        if(found)
+                            break;
+                    }
+                    else{
+                        id = "and" + id;
+                        var t = document.getElementById(id);
+                        if(t.innerHTML.toLowerCase().indexOf(searchText.toLowerCase()) > -1){
+                            t.style.display = "block";
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                if(!found){
+                    var elem = arr[0];
+                    var idAid = elem.split("_");
+                    if(idAid.length > 1)
+                        idAid = idAid[1];
+                    else
+                        idAid = idAid[0];
+                    var id = booleanType.toLowerCase() + idAid[0].toUpperCase() + idAid.substring(1) + name;
+                    document.getElementById(id).style.display = "block";
+                }
+            };
+
+
             var changeHref = function(id){
                 var obj = document.getElementById(id);
                 var current = obj.getAttribute("href");
                 obj.href = current.replace(/\s/g, "_");
+            };
+
+            var highlight = function(searchText){
+                searchText = searchText.replace(/&quot;/g,"");
+                var allTags = document.getElementsByClassName("results");
+                var allWords = searchText.split(" ");
+                for(var i = 0; i < allTags.length; i++){
+                    var tag = allTags[i];
+                    var indArr = {};
+                    if(tag !== undefined && tag.style.display !== "none"){
+                        var text = tag.innerHTML;
+                        var ignoreCaseText = text.toLowerCase();
+                        for(var ind in allWords){
+                            var word = allWords[ind].toLowerCase();
+                            var index = 0;
+                            var oldIndex = 0;
+                            while(oldIndex < text.length){
+                                index = ignoreCaseText.indexOf(word,oldIndex);
+                                if(index !== -1 ){
+                                    indArr[index] = word;
+                                    oldIndex = index + word.length;
+                                }
+                                else{
+                                    oldIndex = text.length;
+                                }
+                            }
+                            var newText = "";
+                            var keys = Object.keys(indArr);
+                            keys = keys.sort(compareTo);
+                            var oldIndex = 0;
+                            for(var k = 0; k < keys.length; k++){
+                                var key = keys[k];
+                                var w = indArr[key];
+                                key = parseInt(key);
+                                newText += text.substring(oldIndex, key);
+                                newText += "<span style='color:red'>" + text.substring(key,key + w.length) + "</span>";
+                                oldIndex = key + w.length;
+                            }
+                            newText += text.substring(oldIndex);
+                            if(newText.length > 1000){
+                                var key = parseInt(keys[0]);
+                                var low = key-500;
+                                var high = key+500;
+                                var adjusted = false;
+                                if( high > newText.length){
+                                    low -= high-newText.length;
+                                    high = newText.length
+                                    adjusted = true;
+                                }
+                                if( low < 0){
+                                    if(!adjusted){
+                                        high += -low;
+                                        if(high > newText.length)
+                                            high = newText.length;
+                                    }
+                                    low = 0;
+                                }
+                                var endDots = high < newText.length;
+                                var beginDots = low > 0;
+                                newText = newText.substring(low,high);
+                                if(endDots)
+                                    newText += "...";
+                                if(beginDots)
+                                    newText = "..." + newText;
+                            }
+                            tag.innerHTML = newText;
+                        }
+                    }
+                }
+            };
+
+            /* needed to write a string compare method so I could sort an array of numbers in string form */
+            var compareTo = function(a, b){
+                var aN = parseInt(a);
+                var bN = parseInt(b);
+                if(aN <= bN){
+                    return -1 ;
+                }
+                else{
+                    return 1;
+                }
+            };
+
+            var toggle = function(name){
+                var obj = $(name);
+                if(obj.is(":hidden"))
+                    obj.slideDown("slow");
+                else
+                    obj.slideUp("slow");
+
             };
 
         </script>
@@ -76,54 +233,155 @@
 		</div>
 
 		<div class = "container">
-		    <div class = "row"
-		        <h3>Search result of</h3>
-		        <div class = "col-sm-4">
-		            <h3>{{query_string}} :</h3>
-		        </div>
-		        {%for entry in chefs %}
-		        <div class = "col-sm-4">
-                    <a href="https://regionalfoods.pythonanywhere.com/chefs/{{entry.name}}" id="{{entry.name}}"><h3>{{entry.name}} </h3></a>
-		            <script>changeHref("{{entry.name}}");</script>
-		        </div>
-		        {% endfor %}
-		        {%for entry in regions %}
-		        <div class = "col-sm-4">
-                    <a href="https://regionalfoods.pythonanywhere.com/regions/{{entry.name}}" id="{{entry.name}}"><h3>{{entry.name}} </h3></a>
-		            <script>changeHref("{{entry.name}}");</script>
-		        </div>
-		        {% endfor %}
-		        {%for entry in recipes %}
-		        <div class = "col-sm-4">
-                    <a href="https://regionalfoods.pythonanywhere.com/recipes/{{entry.name}}" id="{{entry.name}}"><h3>{{entry.name}} </h3></a>
-		            <script>changeHref("{{entry.name}}");</script>
-		        </div>
-		        {% endfor %}
+		    <div class = "row">
+		        <h1>Search result of "{{query_string}}" :</h1>
+            </div>
+            <!--<div class="row">-->
+            <!--    <button type="button" class="btn btn-default btn-lg" style="width:100%;" onclick="toggle('.all-and');">AND</button>-->
+            <!--</div>-->
+            <!-- data-toggle="collapse" -->
+            <div class="panel-group" id="parent">
+                <div class="panel contentbox" >
+                    <div class="panel-heading panel-cursor" style="background-image: url(/static/food_transp.jpg); background-position: 0% 30%" onclick="toggle('#AND');" data-parent="#parent" href="#AND">
+                        <h3>AND</h3>
+                    </div>
+                    <div class="panel-body" id="AND" hidden>
+                        <h3 id="andNone" style="text-align:center;display:none">No Search Results Found</h3>
+                        <h5 id="andChef"><b><u>Chefs: </u></b></h5>
+            		    <div class="row" style="overflow-y:scroll;max-height:350px">
+            		        {%for entry in chefs %}
+            		            <div class="col-md-4" style="height:350px">
+                                    <a href="https://regionalfoods.pythonanywhere.com/chefs/{{entry.name}}" id="{{entry.name}}"><h3 class="results">{{entry.name}} </h3></a>
+                                    <br><h5 class="results" style="display:none" id="andBio{{entry.name}}">{{entry.bio}} </h5>
+                                    <br><h5 class="results" style="display:none" id="andDate{{entry.name}}">{{entry.birth_date}}</h5>
+                                    <br><h5 class="results" style="display:none" id="andPlace{{entry.name}}">{{entry.birth_place}}</h5>
+                                    <br><h5 class="results" style="display:none" id="andStyle{{entry.name}}">{{entry.style}}</h5>
+                                </div>
+                		        <script>changeHref("{{entry.name}}");findAttr("chef","{{query_string}}","AND","{{entry.name}}");</script>
+            		        {% endfor %}
+            		    </div>
+            		    <h5 id="andRegion"><b><u>Regions: </u></b></h5>
+            		    <div class="row" style="overflow-y:scroll;max-height:350px">
+            		        {%for entry in regions %}
+            		            <div class="col-md-4" style="height:350px">
+                                    <a href="https://regionalfoods.pythonanywhere.com/regions/{{entry.name}}" id="{{entry.name}}"><h3 class="results">{{entry.name}} </h3></a>
+                                    <br><h5 class="results" style="display:none" id="andDescription{{entry.name}}">{{entry.description}} </h5>
+                                </div>
+                		            <script>changeHref("{{entry.name}}");findAttr("region","{{query_string}}","AND","{{entry.name}}");</script>
+            		        {% endfor %}
+                        </div>
+            		    <h5 id="andRecipe"><b><u>Recipes: </u></b></h5>
+            		    <div class="row" style="overflow-y:scroll;max-height:350px">
+            		        {%for entry in recipes %}
+            		            <div class="col-md-4" style="height:350px">
+                                    <a href="https://regionalfoods.pythonanywhere.com/recipes/{{entry.name}}" id="{{entry.name}}"><h3 class="results">{{entry.name}} </h3></a>
+                                    <br><h5 class="results" style="display:none" id="andInstructions{{entry.name}}">{{entry.instructions}} </h5>
+                                    <br><h5 class="results" style="display:none" id="andType{{entry.name}}">{{entry.dish_type}}</h5>
+                                    <br><h5 class="results" style="display:none" id="andIngredients{{entry.name}}">{{entry.ingredients}}</h5>
+                                    <br><h5 class="results" style="display:none" id="andNeeded{{entry.name}}">{{entry.time_needed}}</h5>
+                                    <br><h5 class="results" style="display:none" id="andDifficulty{{entry.name}}">{{entry.difficulty}}</h5>
+                                </div>
+                		            <script>changeHref("{{entry.name}}");findAttr("recipe","{{query_string}}","AND","{{entry.name}}");</script>
+            		        {% endfor %}
+            		    </div>
+            		</div>
+            	</div>
+                    <!--<div class="row">-->
+                    <!--    <button type="button" class="btn btn-default btn-lg" style="width:100%;" onclick="toggle('.all-or');">OR</button>-->
+                    <!--</div>-->
+            <!--    % if query_is_multi_word % -->
+                    <div class="panel contentbox" id="orPanel">
+                        <script>
+                            var q = "{{query_string}}";
+                            if(q.split(" ").length == 1){
+                                document.getElementById("orPanel").style.display = "none";
+                                toggle("#AND");
+                            }
+                        </script>
+                        <div class="panel-heading panel-cursor" style="background-image: url(/static/food_transp.jpg); background-position: 0% 37%" onclick="toggle('#OR');" data-parent="#parent" href="#OR">
+                            <h3>OR</h3>
+                        </div>
+                        <div class="panel-body" id="OR" hidden>
+                            <h3 id="orNone" style="text-align:center;display:none">No Search Results Found</h3>
+                            <h5 id="orChef"><b><u>Chefs: </u></b></h5>
+                		    <div class="row" style="overflow-y:scroll;max-height:350px">
+                                {%for entry in or_chefs %}
+                                    <div class="col-md-4" style="height:350px">
+                                        <a href="https://regionalfoods.pythonanywhere.com/chefs/{{entry.name}}" id="or{{entry.name}}"><h3 class="results">{{entry.name}} </h3></a>
+                                        <br><h5 class="results" style="display:none" id="orBio{{entry.name}}">{{entry.bio}} </h5>
+                                        <br><h5 class="results" style="display:none" id="orDate{{entry.name}}">{{entry.birth_date}}</h5>
+                                        <br><h5 class="results" style="display:none" id="orPlace{{entry.name}}">{{entry.birth_place}}</h5>
+                                        <br><h5 class="results" style="display:none" id="orStyle{{entry.name}}">{{entry.style}}</h5>
+                                    </div>
+                    		            <script>changeHref("or{{entry.name}}");findAttr("chef","{{query_string}}","OR","{{entry.name}}");</script>
+                		        {% endfor %}
 
-
-		        <!--{% if fe %}-->
-    		    <!--    {% for entry in fe %}-->
-        		<!--		<div class = "col-sm-4" align="center">-->
-        		<!--			<a href="{{recipe.name}}" id="{{recipe.name}}" style="color: black; text-decoration: none">-->
-          <!--  					<h4>{{ recipe.name }}</h4>-->
-          <!--  					<img src = "{{ recipe.image }}" alt = "image not found" class = "img-rounded set-width"></img>-->
-        		<!--			</a>-->
-        		<!--			<script>changeHref("{{recipe.name}}");</script>-->
-        		<!--		</div>-->
-          <!--          {% endfor %}-->
-          <!--      {% else %}-->
-          <!--          <strong>No recipes currently in category.</strong>-->
-          <!--      {% endif %}-->
-		        </div>
-		     </div>
-		    </div>
-	    </div>
-
+                		    </div>
+            		        <h5 id="orRegion"><b><u>Regions: </u></b></h5>
+                		    <div class="row" style="overflow-y:scroll;max-height:350px">
+                		        {%for entry in or_regions %}
+                		            <div class="col-md-4" style="height:350px">
+                                        <a href="https://regionalfoods.pythonanywhere.com/regions/{{entry.name}}" id="or{{entry.name}}"><h3 class="results">{{entry.name}} </h3></a>
+                                        <br><h5 class="results" style="display:none" id="orDescription{{entry.name}}">{{entry.description}} </h5>
+                                    </div>
+                    		            <script>changeHref("or{{entry.name}}");findAttr("region","{{query_string}}","OR","{{entry.name}}");</script>
+                		        {% endfor %}
+                		    </div>
+                            <h5 id="orRecipe"><b><u>Recipes: </u></b></h5>
+                            <div class="row" style="overflow-y:scroll;max-height:350px">
+                		        {%for entry in or_recipes %}
+                		            <div class="col-md-4" style="height:350px">
+                                        <a href="https://regionalfoods.pythonanywhere.com/recipes/{{entry.name}}" id="or{{entry.name}}"><h3 class="results">{{entry.name}} </h3></a>
+                                        <br><h5 class="results" style="display:none" id="orInstructions{{entry.name}}">{{entry.instructions}} </h5>
+                                        <br><h5 class="results" style="display:none" id="orType{{entry.name}}">{{entry.dish_type}}</h5>
+                                        <br><h5 class="results" style="display:none" id="orIngredients{{entry.name}}">{{entry.ingredients}}</h5>
+                                        <br><h5 class="results" style="display:none" id="orNeeded{{entry.name}}">{{entry.time_needed}}</h5>
+                                        <br><h5 class="results" style="display:none" id="orDifficulty{{entry.name}}">{{entry.difficulty}}</h5>
+                                    </div>
+                    		            <script>changeHref("or{{entry.name}}");findAttr("recipe","{{query_string}}","OR","{{entry.name}}");</script>
+                		        {% endfor %}
+                            </div>
+                	    </div>
+            	    </div>
+            <!--    % endif % -->
+            </div>
+    	</div>
+        <div style="margin-bottom:55px"></div>
 		<div class = "navbar navbar-default navbar-fixed-bottom" style="height: 28px">
 			<div class = "container">
 				<p class = "navbar-text pull-left">Site Built By Witty CS Pun</p>
 			</div>
 		</div>
 	</body>
+    <script>
+        highlight("{{query_string}}");
+        var eraseNull = function(){
+            var arr = [{{chefs|length}}, {{regions|length}}, {{recipes|length}}, {{or_chefs|length}}, {{or_regions|length}}, {{or_recipes|length}}];
+            var bools = ["and","or"];
+            var types = ["Chef","Region","Recipe"];
+            var count = 0;
+            for(var i in arr){
+                var n = arr[i];
+                var mod = i%3;
+                var bNum = Math.floor(i/3);
+                i = parseInt(i);
+                if(mod === 0 && bNum === 1)
+                    count = 0;
+                if(n == 0){
+                    count++;
+                    var id = bools[bNum] + types[mod];
+                    var doc = document.getElementById(id);
+                    doc.style.display = "none";
 
+                }
+                if(count === 3 && mod === 2)
+                    if(bNum === 0)
+                        document.getElementById("andNone").style.display = "block";
+                    else
+                        document.getElementById("orNone").style.display = "block";
+            }
+
+        };
+        eraseNull();
+    </script>
 </html>

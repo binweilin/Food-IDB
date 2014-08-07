@@ -3,7 +3,6 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.core import serializers
 from foodsite.library.models import Chef, Recipe, Region
-from haystack.query import SearchQuerySet
 from itertools import chain
 
 import requests
@@ -51,23 +50,41 @@ def search(request):
     #found_entries = None
     context_dict = {}
     if ('q' in request.GET) and request.GET['q'].strip():
-        query_list = str.split(request.GET['q'])
-        query_string = query_list[0]
+        query_string = request.GET['q']
+        query_string_list = str.split(query_string)
 
-        chef_field = ['bio', 'birth_date', 'birth_place', 'id', 'name', 'style', 'twitter_id']
-        recipe_field = ['name', 'ingredients', 'instructions', 'time_needed', 'difficulty', 'dish_type']
-        region_field = ['name', 'description']
-        chef_query = get_query(query_string, chef_field)
-        recipe_query = get_query(query_string, recipe_field)
-        region_query = get_query(query_string, region_field)
+        chef_fields = ['bio', 'birth_date', 'birth_place', 'id', 'name', 'style', 'twitter_id']
+        recipe_fields = ['name', 'ingredients', 'instructions', 'time_needed', 'difficulty', 'dish_type']
+        region_fields = ['name', 'description']
+
+        chef_query = get_query(query_string, chef_fields)
+        recipe_query = get_query(query_string, recipe_fields)
+        region_query = get_query(query_string, region_fields)
 
         chef_entries = Chef.objects.filter(chef_query)
         recipe_entries = Recipe.objects.filter(recipe_query)
         region_entries = Region.objects.filter(region_query)
 
+        ## Trying OR stuff here
+        or_chef_entries = Chef.objects.none()
+        or_recipe_entries = Recipe.objects.none()
+        or_region_entries = Region.objects.none()
+
+        for s in query_string_list:
+            or_chef_query = get_query(s, chef_fields)
+            or_recipe_query = get_query(s, recipe_fields)
+            or_region_query = get_query(s, region_fields)
+
+            or_chef_entries = set(chain(or_chef_entries, Chef.objects.filter(or_chef_query)))
+            or_recipe_entries = set(chain(or_recipe_entries, Recipe.objects.filter(or_recipe_query)))
+            or_region_entries = set(chain(or_region_entries, Region.objects.filter(or_region_query)))
+
         #found_entries = list(chain(chef_entries, recipe_entries, region_entries))
 
-        context_dict = {'query_string': query_string, 'chefs': chef_entries, 'regions': region_entries, 'recipes': recipe_entries}
+        # or_recipe_entries = or_recipe_entries.distinct()
+
+        context_dict = {'query_string': query_string, 'query_is_multi_word': (len(query_string_list) > 1), 'chefs': chef_entries, 'regions': region_entries, 'recipes': recipe_entries, \
+                        'or_chefs': or_chef_entries, 'or_regions': or_region_entries, 'or_recipes': or_recipe_entries}
 
     return render_to_response('search_result.html', context_dict,context)
 

@@ -9,20 +9,24 @@
 		<!-- ensures right view version -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
         <!-- Custom css -->
         <link rel="stylesheet" type="text/css" href="/static/regionalFoods.css" media="screen">
         <link rel="stylesheet" type="text/css" href="/static/background.css" media="screen">
 
         <!-- scripts -->
-        <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            /*.jumbotron {*/
+            /*    background-image: url(/static/food_transp.jpg);*/
+            /*    background-position: 0% 25%;*/
+            /*}*/
+        </style>
 	</head>
 
 
@@ -32,18 +36,14 @@
 
 		<div class = "navbar navbar-inverse navbar-static-top">
 			<div class = "container">
+
+
+				<div class = "collapse navbar-collapse navHeaderCollapse">
+
 				<div class = "navbar-header">
 					<a href = "/" class = "navbar-brand">Food IDB</a>
 
-		<form class="navbar-form navbar-left" role="search" action="/search/search_result" method="get">
-            <div class="form-group">
-                <input type="text" id="q" name="q" class="form-control" placeholder="">
-            </div>
-            <button type="submit" class="btn btn-default">Search
 
-            </button>
-
-        </form>
 
 					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 						<span class = "icon-bar"></span>
@@ -52,23 +52,55 @@
 					</button>
 				</div>
 
-				<div class = "collapse navbar-collapse navHeaderCollapse">
 					<ul class = "nav navbar-nav navbar-right">
 						<li class = "active"><a href = "/index">Home</a></li>
 						<li><a href = "/chefs">Chefs</a></li>
 						<li><a href = "/recipes">Recipes</a></li>
 						<li><a href = "/regions">Regions</a></li>
-						<li><a href = "/about">About</a></li>
-						<li><a href = "/sochi">Sochi</a></li>
+						<li class = "dropdown">
+                        <li class=""><a href="/about">About</a></li>
+                        <li class=""><a href="/sochi">Sochi</a></li>
+
+
+                        	<form class="navbar-form navbar-right" role="search" action="/search/search_result" method="get">
+                                <div class="form-group">
+                                    <input type="text" id="q" name="q" class="form-control" placeholder="">
+
+                                </div>
+                                <button type="submit" class="btn btn-default">Search</button>
+
+
+
+                            </form>
+
+
+
+                            <!--<span class="search-box">-->
+                            <!--<form id="searchForm" class="navbar-form navbar-right" method="get" action="/search/" role="search">-->
+                            <!--    <div class="input-group">-->
+                            <!--        <input class="form-control" placeholder="Search" name="q" id="q" type="text">-->
+                            <!--        <div class="input-group-btn">-->
+                            <!--            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>-->
+                            <!--        </div>-->
+                            <!--    </div>-->
+                            <!--</form>-->
+                            <!--</span>-->
+
+
+                        </li>
 					</ul>
+
 				</div>
+
+
+
 
 			</div>
 
 		</div>
 
 		<div class = "container">
-			<div class = "jumbotron text-center">
+    		<div class = "jumbotron text-center" style="background-image: url(/static/food_transp.jpg); background-position: 0% 10%">
 				<h1>The Food IDB</h1>
 				<p>Turn back now or experience painful hunger. You have been warned!</p>
 			</div>
@@ -77,15 +109,15 @@
 		<div class = "container">
 			<div class = "row">
 				<div class = "col-sm-4" align="center">
-				    <a href="/chefs" style="color: black; text-decoration: none">
-    					<h3>Explore Chefs</h3>
-    					<img src = "/static/chefs/gordon_ramsay.jpg" "image not found" class = "img-rounded set-width"></img>
-    				</a>
+    			    <a href="/chefs" style="color: #333333; text-decoration: none">
+            			<h3>Explore Chefs</h3>
+            			<img src = "/static/chefs/gordon_ramsay.jpg" "image not found" class = "img-rounded set-width">
+                    </a>
 					<!--<br><br>-->
 					<!--<a href = "/chefs" class = "btn btn-default">Explore Chefs</a>-->
 				</div>
 				<div class = "col-sm-4" align="center">
-				    <a href="/recipes" style="color: black; text-decoration: none">
+				    <a href="/recipes" style="color: #333333; text-decoration: none">
     					<h3>Explore Recipes</h3>
     					<img src = "/static/recipes/southern_fried_chicken.jpeg" alt = "image not found" class = "img-rounded set-width"></img>
 					</a>
@@ -93,7 +125,7 @@
 					<!--<a href = "/recipes" class = "btn btn-default">Explore Recipes</a>-->
 				</div>
 				<div class = "col-sm-4" align="center">
-				    <a href="/regions" style="color: black; text-decoration: none">
+				    <a href="/regions" style="color: #333333; text-decoration: none">
     					<h3>Explore Regions</h3>
     					<img src = "/static/regions/japan.jpg" alt = "image not found" class = "img-rounded set-width"></img>
 					</a>
