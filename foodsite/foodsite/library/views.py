@@ -3,6 +3,95 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.core import serializers
 from foodsite.library.models import Chef, Recipe, Region
+from haystack.query import SearchQuerySet
+from itertools import chain
+
+import requests
+import re
+
+from django.db.models import Q
+
+def normalize_query(query_string,
+                    findterms=re.compile(r'"([^"]+)"|(\S+)').findall,
+                    normspace=re.compile(r'\s{2,}').sub):
+    ''' Splits the query string in invidual keywords, getting rid of unecessary spaces
+        and grouping quoted words together.
+        Example:
+
+        >>> normalize_query('  some random  words "with   quotes  " and   spaces')
+        ['some', 'random', 'words', 'with quotes', 'and', 'spaces']
+
+    '''
+    return [normspace(' ', (t[0] or t[1]).strip()) for t in findterms(query_string)]
+
+def get_query(query_string, search_fields):
+    ''' Returns a query, that is a combination of Q objects. That combination
+        aims to search keywords within a model by testing the given search fields.
+
+    '''
+    query = None # Query to search for every search term
+    terms = normalize_query(query_string)
+    for term in terms:
+        or_query = None # Query to search for a given term in each field
+        for field_name in search_fields:
+            q = Q(**{"%s__icontains" % field_name: term})
+            if or_query is None:
+                or_query = q
+            else:
+                or_query = or_query | q
+        if query is None:
+            query = or_query
+        else:
+            query = query & or_query
+    return query
+
+def search(request):
+    context = RequestContext(request)
+    query_string = ''
+    #found_entries = None
+    context_dict = {}
+    if ('q' in request.GET) and request.GET['q'].strip():
+        query_list = str.split(request.GET['q'])
+        query_string = query_list[0]
+
+        chef_field = ['bio', 'birth_date', 'birth_place', 'id', 'name', 'style', 'twitter_id']
+        recipe_field = ['name', 'ingredients', 'instructions', 'time_needed', 'difficulty', 'dish_type']
+        region_field = ['name', 'description']
+        chef_query = get_query(query_string, chef_field)
+        recipe_query = get_query(query_string, recipe_field)
+        region_query = get_query(query_string, region_field)
+
+        chef_entries = Chef.objects.filter(chef_query)
+        recipe_entries = Recipe.objects.filter(recipe_query)
+        region_entries = Region.objects.filter(region_query)
+
+        #found_entries = list(chain(chef_entries, recipe_entries, region_entries))
+
+        context_dict = {'query_string': query_string, 'chefs': chef_entries, 'regions': region_entries, 'recipes': recipe_entries}
+
+    return render_to_response('search_result.html', context_dict,context)
+
+# def search2(request, s):
+#     entry_query = get_query(s,['id','name'])
+#     found_entry = Chef.objects.filter(entry_query)
+#     return render_to_response('search_result.html', {'string': s, 'entries': found_entry},context_instance=RequestContext(request))
+
+
+# def query(response):
+#     params = response.GET.get('q', '')
+#     link = [];
+#     link.append(chef_url(response,params))
+#     # link.append(recipe_url(response,params))
+#     # link.append(region_url(response,params))
+#     #linkappend
+#     return link
+
+# def chef_url(response, params):
+#     chefs = Chef.objects
+#     items = chef.all()
+
+#     return 0
+
 
 def get_chef(request, chef_pk):
     chef_pk = str(chef_pk)
@@ -133,6 +222,20 @@ def recipemain(request):
 
     for recipe in recipe_list:
         recipe.url = recipe.name.replace(' ', '_')
+
+    # recipe_list_mod = []
+    # recipes_iter = iter(recipe_list)
+    # while True:
+    #     new_list = []
+    #     try:
+    #         for i in range(4):
+    #             new_list.append(next(recipes_iter))
+    #         recipe_list_mod.append(new_list)
+    #     except StopIteration:
+    #         recipe_list_mod.append(new_list)
+    #         break
+    # context_dict['recipes_mod'] = recipe_list_mod
+
     return render_to_response('recipemain.html', context_dict, context)
 
 def regionmain(request):
@@ -144,3 +247,25 @@ def regionmain(request):
     for region in region_list:
         region.url = region.name.replace(' ', '_')
     return render_to_response('regionmain.html', context_dict, context)
+
+def sochimain(request):
+    context = RequestContext(request)
+    region_list = Region.objects.all()
+    r = requests.get('http://ajhooper.pythonanywhere.com/api/country/?format=json')
+    r = r.json()
+    r2 = requests.get('http://ajhooper.pythonanywhere.com/api/athlete/?format=json')
+    r2 = r2.json()
+
+    # matching_list = []
+    # for a in region_list:
+    #     for b in r:
+    #         if (str(a) == b["name"]):
+    #             matching_list += b
+    # context_dict = {'regions': matching_list}
+
+    context_dict = { 'countries' : r}
+    context_dict['regions'] = region_list
+    context_dict['athletes'] = r2
+
+
+    return render_to_response('olympicad.html', context_dict, context)

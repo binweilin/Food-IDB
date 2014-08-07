@@ -21,6 +21,7 @@
         <!-- scripts -->
         <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script>
             var changeHref = function(id){
                 var obj = document.getElementById(id);
@@ -51,18 +52,60 @@
 						<li class = "active"><a href = "/recipes">Recipes</a></li>
 						<li><a href = "/regions">Regions</a></li>
 						<li><a href = "/about">About</a></li>
+						<li><a href = "/sochi">Sochi</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
+
+
+        <!--<div class="container-fluid">-->
+        <!--<div class="row-fluid">-->
+        <!--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">-->
+        <!--    <ol class="carousel-indicators">-->
+        <!--        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
+        <!--        <li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
+        <!--        <li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+        <!--    </ol>-->
+        <!--    <div class="carousel-inner">-->
+        <!--        <div class="item active">-->
+        <!--            Explore Recipes-->
+        <!--        </div>-->
+        <!--        		{% if recipes_mod %}-->
+        <!--        		    {% for recipe_group in recipes_mod %}-->
+        <!--            		    <div class="item">-->
+        <!--        		        {% for recipe in recipe_group %}-->
+        <!--            		            <div class = "col-sm-3" align="center">-->
+        <!--                    				<a href="{{recipe.name}}" id="{{recipe.name}}"><img src = "{{ recipe.image }}" alt = "image not found" class = "img-rounded set-width"></img></a>-->
+        <!--                					<script>changeHref("{{recipe.name}}");</script>-->
+        <!--                    			</div>-->
+        <!--                                <div class="carousel-caption">-->
+        <!--                                    <h3>{{recipe.name}}</h3>-->
+        <!--                                </div>-->
+        <!--                        {% endfor %}-->
+        <!--                        </div>-->
+        <!--                    {% endfor %}-->
+        <!--                {% else %}-->
+        <!--                <strong>No recipes currently in category.</strong>-->
+        <!--                {% endif %}-->
+        <!--    </div>-->
+        <!--    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">-->
+        <!--        <span class="glyphicon glyphicon-chevron-left"></span>-->
+        <!--    </a>-->
+        <!--    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">-->
+        <!--        <span class="glyphicon glyphicon-chevron-right"></span>-->
+        <!--    </a>-->
+        <!--</div>-->
 
 		<div class = "container">
 		    <div class = "row">
     		    {% if recipes %}
     		        {% for recipe in recipes %}
         				<div class = "col-sm-4" align="center">
-        					<h4>{{ recipe.name }}</h4>
-        					<a href="{{recipe.name}}" id="{{recipe.name}}"><img src = "{{ recipe.image }}" alt = "image not found" class = "img-rounded set-width"></img></a>
+        					<a href="{{recipe.name}}" id="{{recipe.name}}" style="color: black; text-decoration: none">
+            					<h4>{{ recipe.name }}</h4>
+            					<img src = "{{ recipe.image }}" alt = "image not found" class = "img-rounded set-width"></img>
+        					</a>
         					<script>changeHref("{{recipe.name}}");</script>
         				</div>
                     {% endfor %}
@@ -73,7 +116,7 @@
 			</div>
 
 			<div class="row">
-			    <div class="col-sm-12" style="margin-bottom:50px">
+			    <div class="col-sm-12" style="margin-bottom:60px">
 			    </div>
 			</div>
 		</div>

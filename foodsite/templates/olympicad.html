@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+        	<title>Sochi</title>
+
+    	    <!-- Favicon -->
+    	    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+            <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+
+    		<!-- ensures right view version -->
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    		<!-- Latest compiled and minified CSS -->
+    		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    		<!-- Optional theme -->
+    		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+            <!-- Custom css -->
+            <link rel="stylesheet" type="text/css" href="/static/regionalFoods.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="/static/background3.css" media="screen">
+            <!-- scripts -->
+            <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            <script>
+                var changeHref = function(id){
+                    var obj = document.getElementById(id);
+                    var current = obj.getAttribute("href");
+                    obj.href = current.replace(/\s/g, "_");
+                };
+            </script>
+        </head>
+        <body>
+
+        	<div class = "navbar navbar-inverse navbar-static-top">
+    			<div class = "container">
+    				<div class = "navbar-header">
+    					<a href = "/" class = "navbar-brand">Food IDB</a>
+
+    					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+    						<span class = "icon-bar"></span>
+    						<span class = "icon-bar"></span>
+    						<span class = "icon-bar"></span>
+    					</button>
+    				</div>
+    				<div class = "collapse navbar-collapse navHeaderCollapse">
+    					<ul class = "nav navbar-nav navbar-right">
+    						<li><a href = "/index">Home</a></li>
+    						<li><a href = "/chefs">Chefs</a></li>
+    						<li><a href = "/recipes">Recipes</a></li>
+    						<li><a href = "/regions">Regions</a></li>
+    						<li><a href = "/about">About</a></li>
+    						<li class="active"><a href = "/sochi">Sochi</a></li>
+    					</ul>
+    				</div>
+    			</div>
+		    </div>
+
+
+
+
+    		<div class = "container">
+
+    			<div class = "row">
+           <!-- 		<div class = "col-lg-8" align="left">-->
+           <!-- 			<div class = "panel panel-default">-->
+        			<!--        <div class = "panel-body">-->
+           <!-- 					<h3>{{region_name}}</h3>-->
+           <!-- 					<img src = "{{region.image}}" alt="image not found" class = "img-rounded" style ="width: 100%"></img>-->
+           <!-- 				</div>-->
+           <!-- 			</div>-->
+        			<!--</div>-->
+        			<!--            		<div class = "col-lg-8" align="left">-->
+           <!-- 			<div class = "panel panel-default">-->
+        			<!--        <div class = "panel-body">-->
+           <!-- 					<h3>{{region_name}}</h3>-->
+           <!-- 					<img src = "{{region.image}}" alt="image not found" class = "img-rounded" style ="width: 100%"></img>-->
+           <!-- 				</div>-->
+           <!-- 			</div>-->
+        			<!--</div>-->
+
+
+                <div class="panel panel-default">
+		            <div class="panel-body">
+
+
+            		                <h3>Olympic medal winning regions</h3>
+                                    {% for region in regions %}
+                                        {% for country in countries %}
+                                            {% if region.name == country.name %}
+                                                <div class = "col-sm-8">
+
+            		                                    <a href="http://regionalfoods.pythonanywhere.com/regions/{{region.name}}" id="{{region.name}}" style="color: black; text-decoration: none">
+                                        					<h4>{{ region.name }}</h4>
+                                        					<img src = "{{ region.image }}" alt = "image not found" class = "img-rounded set-width"></img>
+                                    					</a>
+                                    					<script>changeHref("{{region.name}}");</script>
+
+                                                </div>
+
+
+                                            <!--            <div class = "list-group">-->
+                                            <!--            <a href = "/regions/{{region.name}}" id="{{region.name}}" class="list-group-item">-->
+                                            <!--                <script>changeHref("{{region.name}}");</script>-->
+
+                                            <!--                <h5><span class="glyphicon glyphicon-cutlery" style="margin-right:2ch"></span>{{region.name}}</h5>-->
+                                            <!--            </a>-->
+                        				                <!--</div>-->
+
+
+                            		        <div class = "col-sm-4">
+                                      <!--          <div class = "panel panel-default">-->
+                                      <!--              <div class = "panel-body">-->
+                                                        <h4>Description</h4>
+                                                        <p>{{ country.description }}</p>
+                                                        <h4>Total Gold</h4>
+                                                        <p>{{ country.total_gold_medals }}</p>
+                                                        <h4>Total Silver</h4>
+                                                        <p>{{ country.total_silver_medals }}</p>
+                                                        <h4>Total Bronze</h4>
+                                                        <p>{{ country.total_bronze_medals }}</p>
+                                                        <h4>Athletes {{country.athletes}}</h4>
+                                                            {% for athlete in athletes %}
+                                                                {% if athlete.country == country.id %}
+                                                                <div class = "list-group">
+                                                                    <h5><span class="glyphicon glyphicon-user" style="margin-right:2ch"></span>{{athlete.last_name}}</h5>
+                                                                </div>
+                                                                {% endif %}
+                                                            {% endfor %}
+
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            </div>
+
+
+                				            {% endif %}
+            				            {% endfor %}
+                                    {% endfor %}
+
+
+
+                    </div>
+                    </div>
+        		</div>
+
+
+        		<div class="row">
+        		    <div class="col-lg-12">
+        		        <div style="margin-bottom:100px"></div>
+        		    </div>
+        		</div>
+
+        	</div>
+
+        	<div class = "navbar navbar-default navbar-fixed-bottom">
+			    <div class = "container">
+				    <p class = "navbar-text pull-left">Site Built By Witty CS Pun</p>
+			    </div>
+		    </div>
+
+        </body>
+    </html>

@@ -163,3 +163,15 @@ git add *
 git commit -am "Implemented API and added API tests"
 git commit -am "Implemented API and added API tests, fixes #24, fixes #26"
 git push
+pip install django-haystack
+pwd
+cd ..
+lx
+ls -l
+cd ..
+ls -l
+cd home/regionalfoods/
+sudo pip install django-haystack
+cd ../
+ls
+virtualenv env

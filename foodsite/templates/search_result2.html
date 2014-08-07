@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Regions</title>
-
 	    <!-- Favicon -->
 	    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 
+		<title>Food IDB</title>
 		<!-- ensures right view version -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Latest compiled and minified CSS -->
@@ -18,6 +17,7 @@
         <!-- Custom css -->
         <link rel="stylesheet" type="text/css" href="/static/regionalFoods.css" media="screen">
         <link rel="stylesheet" type="text/css" href="/static/background.css" media="screen">
+
         <!-- scripts -->
         <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -30,13 +30,28 @@
 
         </script>
 
+
 	</head>
+
+
+
 	<body>
+
 
 		<div class = "navbar navbar-inverse navbar-static-top">
 			<div class = "container">
 				<div class = "navbar-header">
 					<a href = "/" class = "navbar-brand">Food IDB</a>
+
+		<form class="navbar-form navbar-left" role="search" action="/search/search_result" method="get">
+            <div class="form-group">
+                <input type="text" id="q" name="q" class="form-control" placeholder="">
+            </div>
+            <button type="submit" class="btn btn-default">Search
+
+            </button>
+
+        </form>
 
 					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 						<span class = "icon-bar"></span>
@@ -44,44 +59,57 @@
 						<span class = "icon-bar"></span>
 					</button>
 				</div>
+
 				<div class = "collapse navbar-collapse navHeaderCollapse">
 					<ul class = "nav navbar-nav navbar-right">
-						<li><a href = "/index">Home</a></li>
+						<li class = "active"><a href = "/index">Home</a></li>
 						<li><a href = "/chefs">Chefs</a></li>
 						<li><a href = "/recipes">Recipes</a></li>
-						<li class = "active"><a href = "/regions">Regions</a></li>
+						<li><a href = "/regions">Regions</a></li>
 						<li><a href = "/about">About</a></li>
 						<li><a href = "/sochi">Sochi</a></li>
 					</ul>
 				</div>
+
 			</div>
+
 		</div>
 
 		<div class = "container">
-		    <div class = "row">
-    		    {% if regions %}
-    		        {% for region in regions %}
-        				<div class = "col-sm-4" align="center">
-        				<a href="{{region.name}}" id="{{region.name}}" style="color: black; text-decoration: none">
-            					<h3>{{ region.name }}</h3>
-            					<img src = "{{ region.image }}" alt = "image not found" class = "img-rounded set-width"></img>
-        					</a>
-        					<script>changeHref("{{region.name}}");</script>
-        				</div>
-                    {% endfor %}
-                {% else %}
-                    <strong>No recipes currently in category.</strong>
-                {% endif %}
+		    <div class = "row"
+		        <h3>Search result of</h3>
+		        <div class = "col-sm-4">
+		            <h3>{{query_string}} :</h3>
+		        </div>
+		        {%for entry in fe %}
+		        <div class = "col-sm-4">
+		            <!--<a href="{{entry.name}}" id="{{entry.name}}"><h3>{{entry.name}} </h3></a>-->
+		            <!--<script>changeHref("{{entry.name}}");</script>-->
+		            <!--{{entry.model}}-->
+		            <h3>{{entry}} </h3>
+		        </div>
+		        {% endfor %}
 
-			</div>
 
-			<div class="row">
-			    <div class="col-sm-12" style="margin-bottom:60px">
-			    </div>
-			</div>
-		</div>
+		        <!--{% if fe %}-->
+    		    <!--    {% for entry in fe %}-->
+        		<!--		<div class = "col-sm-4" align="center">-->
+        		<!--			<a href="{{recipe.name}}" id="{{recipe.name}}" style="color: black; text-decoration: none">-->
+          <!--  					<h4>{{ recipe.name }}</h4>-->
+          <!--  					<img src = "{{ recipe.image }}" alt = "image not found" class = "img-rounded set-width"></img>-->
+        		<!--			</a>-->
+        		<!--			<script>changeHref("{{recipe.name}}");</script>-->
+        		<!--		</div>-->
+          <!--          {% endfor %}-->
+          <!--      {% else %}-->
+          <!--          <strong>No recipes currently in category.</strong>-->
+          <!--      {% endif %}-->
+		        </div>
+		     </div>
+		    </div>
+	    </div>
 
-		<div class = "navbar navbar-default navbar-fixed-bottom">
+		<div class = "navbar navbar-default navbar-fixed-bottom" style="height: 28px">
 			<div class = "container">
 				<p class = "navbar-text pull-left">Site Built By Witty CS Pun</p>
 			</div>
