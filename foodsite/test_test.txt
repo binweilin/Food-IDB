@@ -1,0 +1,475 @@
+EE..E.........EEE.EEE...
+======================================================================
+ERROR: test_chef_api_1 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 226, in test_chef_api_1
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/chef/1/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+======================================================================
+ERROR: test_chef_api_2 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 234, in test_chef_api_2
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/chef/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+======================================================================
+ERROR: test_cref_api_3 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 242, in test_cref_api_3
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/chef/300/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+======================================================================
+ERROR: test_recipe_api_1 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 266, in test_recipe_api_1
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/recipe/11/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+======================================================================
+ERROR: test_recipe_api_2 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 274, in test_recipe_api_2
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/recipe/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+======================================================================
+ERROR: test_recipe_api_3 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 282, in test_recipe_api_3
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/recipe/300/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+======================================================================
+ERROR: test_region_api_1 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 246, in test_region_api_1
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/region/2/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+======================================================================
+ERROR: test_region_api_2 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 254, in test_region_api_2
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/region/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+======================================================================
+ERROR: test_region_api_3 (foodsite.library.tests.FoodsiteTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 480, in urlopen
+    body=body, headers=headers)
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 285, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.3/http/client.py", line 1061, in request
+    self._send_request(method, url, body, headers)
+  File "/usr/lib/python3.3/http/client.py", line 1099, in _send_request
+    self.endheaders(body)
+  File "/usr/lib/python3.3/http/client.py", line 1057, in endheaders
+    self._send_output(message_body)
+  File "/usr/lib/python3.3/http/client.py", line 902, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.3/http/client.py", line 840, in send
+    self.connect()
+  File "/usr/lib/python3.3/http/client.py", line 818, in connect
+    self.timeout, self.source_address)
+  File "/usr/lib/python3.3/socket.py", line 435, in create_connection
+    raise err
+  File "/usr/lib/python3.3/socket.py", line 426, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 334, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.3/dist-packages/requests/packages/urllib3/connectionpool.py", line 522, in urlopen
+    'Socket error: %s.' % e)
+requests.packages.urllib3.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/regionalfoods/foodsite/foodsite/library/tests.py", line 262, in test_region_api_3
+    r = requests.get('http://regionalfoods.pythonanywhere.com/api/region/300/')
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.3/dist-packages/requests/adapters.py", line 385, in send
+    raise ProxyError(e)
+requests.exceptions.ProxyError: Cannot connect to proxy. Socket error: [Errno 111] Connection refused.
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.802s
+
+FAILED (errors=9)
+Creating test database for alias 'default'...
+Destroying test database for alias 'default'...

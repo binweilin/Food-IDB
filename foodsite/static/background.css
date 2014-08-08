@@ -2,3 +2,14 @@ body{
   background-image: url(cream_pixels_@2X.png);
   background-repeat:repeat;
 }
+
+
+img {
+  display: inline-block;
+}
+
+img:hover {
+  -moz-box-shadow: 0 0 20px #888;
+  -webkit-box-shadow: 0 0 20px #888;
+  box-shadow: 0 0 20px #888;
+}

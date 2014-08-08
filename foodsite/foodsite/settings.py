@@ -36,19 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'haystack',
-    'whoosh',
     'foodsite.library',
 )
-
-WHOOSH_INDEX = os.path.join(os.path.dirname(__file__), 'whoosh_index')
-
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': WHOOSH_INDEX,
-    },
-}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -76,6 +65,13 @@ DATABASES = {
         'HOST': 'mysql.server',
     }
 }
+
+import sys
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase'
+    }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

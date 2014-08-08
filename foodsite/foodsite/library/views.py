@@ -23,7 +23,7 @@ def normalize_query(query_string,
     '''
     return [normspace(' ', (t[0] or t[1]).strip()) for t in findterms(query_string)]
 
-def get_query(query_string, search_fields):
+def get_query(query_string, search_fields, isAND):
     ''' Returns a query, that is a combination of Q objects. That combination
         aims to search keywords within a model by testing the given search fields.
 
@@ -40,51 +40,65 @@ def get_query(query_string, search_fields):
                 or_query = or_query | q
         if query is None:
             query = or_query
-        else:
+        elif isAND:
             query = query & or_query
+        else:
+            query = query | or_query
     return query
 
-def search(request):
+def search(request=None, q_string=''):
     context = RequestContext(request)
     query_string = ''
     #found_entries = None
     context_dict = {}
-    if ('q' in request.GET) and request.GET['q'].strip():
-        query_string = request.GET['q']
-        query_string_list = str.split(query_string)
+    if request is None and q_string == '':
+        return
+    if  (q_string != '') or (('q' in request.GET) and request.GET['q'].strip()):
+        if request is not None:
+            query_string = request.GET['q']
+        else:
+            query_string = q_string
+
+        # query_string_list = str.split(query_string)
 
         chef_fields = ['bio', 'birth_date', 'birth_place', 'id', 'name', 'style', 'twitter_id']
         recipe_fields = ['name', 'ingredients', 'instructions', 'time_needed', 'difficulty', 'dish_type']
         region_fields = ['name', 'description']
 
-        chef_query = get_query(query_string, chef_fields)
-        recipe_query = get_query(query_string, recipe_fields)
-        region_query = get_query(query_string, region_fields)
+        chef_query = get_query(query_string, chef_fields, True)
+        recipe_query = get_query(query_string, recipe_fields, True)
+        region_query = get_query(query_string, region_fields, True)
 
         chef_entries = Chef.objects.filter(chef_query)
         recipe_entries = Recipe.objects.filter(recipe_query)
         region_entries = Region.objects.filter(region_query)
 
         ## Trying OR stuff here
-        or_chef_entries = Chef.objects.none()
-        or_recipe_entries = Recipe.objects.none()
-        or_region_entries = Region.objects.none()
+        or_chef_query = get_query(query_string, chef_fields, False)
+        or_recipe_query = get_query(query_string, recipe_fields, False)
+        or_region_query = get_query(query_string, region_fields, False)
 
-        for s in query_string_list:
-            or_chef_query = get_query(s, chef_fields)
-            or_recipe_query = get_query(s, recipe_fields)
-            or_region_query = get_query(s, region_fields)
+        or_chef_entries = Chef.objects.filter(or_chef_query)
+        or_recipe_entries = Recipe.objects.filter(or_recipe_query)
+        or_region_entries = Region.objects.filter(or_region_query)
 
-            or_chef_entries = set(chain(or_chef_entries, Chef.objects.filter(or_chef_query)))
-            or_recipe_entries = set(chain(or_recipe_entries, Recipe.objects.filter(or_recipe_query)))
-            or_region_entries = set(chain(or_region_entries, Region.objects.filter(or_region_query)))
+        # for s in query_string_list:
+        #     or_chef_query = get_query(s, chef_fields)
+        #     or_recipe_query = get_query(s, recipe_fields)
+        #     or_region_query = get_query(s, region_fields)
+
+        #     or_chef_entries = set(chain(or_chef_entries, Chef.objects.filter(or_chef_query)))
+        #     or_recipe_entries = set(chain(or_recipe_entries, Recipe.objects.filter(or_recipe_query)))
+        #     or_region_entries = set(chain(or_region_entries, Region.objects.filter(or_region_query)))
 
         #found_entries = list(chain(chef_entries, recipe_entries, region_entries))
 
         # or_recipe_entries = or_recipe_entries.distinct()
 
-        context_dict = {'query_string': query_string, 'query_is_multi_word': (len(query_string_list) > 1), 'chefs': chef_entries, 'regions': region_entries, 'recipes': recipe_entries, \
+        context_dict = {'query_string': query_string, 'chefs': chef_entries, 'regions': region_entries, 'recipes': recipe_entries, \
                         'or_chefs': or_chef_entries, 'or_regions': or_region_entries, 'or_recipes': or_recipe_entries}
+    if request is None:
+        return context_dict
 
     return render_to_response('search_result.html', context_dict,context)
 

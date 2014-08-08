@@ -30,6 +30,19 @@
             </script>
         </head>
         <body>
+            <style>
+
+                img {
+                  display: inline-block;
+                }
+
+                img:hover {
+                  -moz-box-shadow: 0 0 20px #888;
+                  -webkit-box-shadow: 0 0 20px #888;
+                  box-shadow: 0 0 20px #888;
+                }
+
+            </style>
 
         	<div class = "navbar navbar-inverse navbar-static-top">
     			<div class = "container">
@@ -50,6 +63,17 @@
     						<li><a href = "/regions">Regions</a></li>
     						<li><a href = "/about">About</a></li>
     						<li class="active"><a href = "/sochi">Sochi</a></li>
+    						<li>
+    						    <form class="navbar-form navbar-left" role="search" action="/search/search_result" method="get">
+                                    <div class="form-group">
+                                        <input type="text" id="q" name="q" class="form-control" placeholder="">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Search
+
+                                    </button>
+
+                                </form>
+    						</li>
     					</ul>
     				</div>
     			</div>
@@ -135,7 +159,7 @@
                 				            {% endif %}
             				            {% endfor %}
                                     {% endfor %}
-
+                                    <h5>Brought to you by <a href = "http://ajhooper.pythonanywhere.com/">4 is better than 6</a></h5>
 
 
                     </div>

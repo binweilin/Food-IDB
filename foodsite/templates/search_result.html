@@ -57,7 +57,7 @@
                         for(var x in searchText){
                             var w = searchText[x];
                             var t = document.getElementById(id);
-                            if(t.innerHTML.toLowerCase().indexOf(w.toLowerCase()) > -1){
+                            if(t.innerHTML.replace(/<.*>/g," ").toLowerCase().indexOf(w.toLowerCase()) > -1){
                                 t.style.display = "block";
                                 found = true;
                                 break;
@@ -69,7 +69,7 @@
                     else{
                         id = "and" + id;
                         var t = document.getElementById(id);
-                        if(t.innerHTML.toLowerCase().indexOf(searchText.toLowerCase()) > -1){
+                        if(t.innerHTML.replace(/<.*>/g," ").toLowerCase().indexOf(searchText.toLowerCase()) > -1){
                             t.style.display = "block";
                             found = true;
                             break;
@@ -103,7 +103,7 @@
                     var tag = allTags[i];
                     var indArr = {};
                     if(tag !== undefined && tag.style.display !== "none"){
-                        var text = tag.innerHTML;
+                        var text = tag.innerHTML.replace(/<.*>/g," ").replace(/&lt;.*&gt;/g, " ");
                         var ignoreCaseText = text.toLowerCase();
                         for(var ind in allWords){
                             var word = allWords[ind].toLowerCase();
@@ -178,10 +178,16 @@
 
             var toggle = function(name){
                 var obj = $(name);
-                if(obj.is(":hidden"))
+                if(obj.is(":hidden")){
                     obj.slideDown("slow");
-                else
+                    $(name+"right").hide();
+                    $(name+"down").show();
+                }
+                else{
                     obj.slideUp("slow");
+                    $(name+"down").hide();
+                    $(name+"right").show();
+                }
 
             };
 
@@ -190,8 +196,6 @@
 
 	</head>
 
-
-
 	<body>
 
 
@@ -199,16 +203,6 @@
 			<div class = "container">
 				<div class = "navbar-header">
 					<a href = "/" class = "navbar-brand">Food IDB</a>
-
-		<form class="navbar-form navbar-left" role="search" action="/search/search_result" method="get">
-            <div class="form-group">
-                <input type="text" id="q" name="q" class="form-control" placeholder="">
-            </div>
-            <button type="submit" class="btn btn-default">Search
-
-            </button>
-
-        </form>
 
 					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 						<span class = "icon-bar"></span>
@@ -225,6 +219,15 @@
 						<li><a href = "/regions">Regions</a></li>
 						<li><a href = "/about">About</a></li>
 						<li><a href = "/sochi">Sochi</a></li>
+						<li>		<form class="navbar-form navbar-left" role="search" action="/search/search_result" method="get">
+            <div class="form-group">
+                <input type="text" id="q" name="q" class="form-control" placeholder="">
+            </div>
+            <button type="submit" class="btn btn-default">Search
+
+            </button>
+
+        </form></li>
 					</ul>
 				</div>
 
@@ -243,7 +246,15 @@
             <div class="panel-group" id="parent">
                 <div class="panel contentbox" >
                     <div class="panel-heading panel-cursor" style="background-image: url(/static/food_transp.jpg); background-position: 0% 30%" onclick="toggle('#AND');" data-parent="#parent" href="#AND">
-                        <h3>AND</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 id="andHead">AND: </h3>
+                            </div>
+                            <div class="col-md-6" style="text-align:right">
+                                <span class="glyphicon glyphicon-circle-arrow-right" id="ANDright" style="font-size:2em;"></span>
+                                <span class="glyphicon glyphicon-circle-arrow-down" style="font-size:2em;display:none" id="ANDdown"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-body" id="AND" hidden>
                         <h3 id="andNone" style="text-align:center;display:none">No Search Results Found</h3>
@@ -275,7 +286,7 @@
             		        {%for entry in recipes %}
             		            <div class="col-md-4" style="height:350px">
                                     <a href="https://regionalfoods.pythonanywhere.com/recipes/{{entry.name}}" id="{{entry.name}}"><h3 class="results">{{entry.name}} </h3></a>
-                                    <br><h5 class="results" style="display:none" id="andInstructions{{entry.name}}">{{entry.instructions}} </h5>
+                                    <br><h5 class="results" style="display:none" id="andInstructions{{entry.name}}">{{entry.instructions | safe}} </h5>
                                     <br><h5 class="results" style="display:none" id="andType{{entry.name}}">{{entry.dish_type}}</h5>
                                     <br><h5 class="results" style="display:none" id="andIngredients{{entry.name}}">{{entry.ingredients}}</h5>
                                     <br><h5 class="results" style="display:none" id="andNeeded{{entry.name}}">{{entry.time_needed}}</h5>
@@ -293,13 +304,22 @@
                     <div class="panel contentbox" id="orPanel">
                         <script>
                             var q = "{{query_string}}";
-                            if(q.split(" ").length == 1){
+                            var temp = q.replace(/&quot;.*&quot;/g,"");
+                            if(q.split(" ").length == 1 || temp.split(" ").length == 1){
                                 document.getElementById("orPanel").style.display = "none";
                                 toggle("#AND");
                             }
                         </script>
                         <div class="panel-heading panel-cursor" style="background-image: url(/static/food_transp.jpg); background-position: 0% 37%" onclick="toggle('#OR');" data-parent="#parent" href="#OR">
-                            <h3>OR</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 id="orHead">OR: </h3>
+                                </div>
+                                <div class="col-md-6" style="text-align:right">
+                                    <span class="glyphicon glyphicon-circle-arrow-right" id="ORright" style="font-size:2em;"></span>
+                                    <span class="glyphicon glyphicon-circle-arrow-down" style="font-size:2em;display:none" id="ORdown"></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="panel-body" id="OR" hidden>
                             <h3 id="orNone" style="text-align:center;display:none">No Search Results Found</h3>
@@ -332,7 +352,7 @@
                 		        {%for entry in or_recipes %}
                 		            <div class="col-md-4" style="height:350px">
                                         <a href="https://regionalfoods.pythonanywhere.com/recipes/{{entry.name}}" id="or{{entry.name}}"><h3 class="results">{{entry.name}} </h3></a>
-                                        <br><h5 class="results" style="display:none" id="orInstructions{{entry.name}}">{{entry.instructions}} </h5>
+                                        <br><h5 class="results" style="display:none" id="orInstructions{{entry.name}}">{{entry.instructions | safe}} </h5>
                                         <br><h5 class="results" style="display:none" id="orType{{entry.name}}">{{entry.dish_type}}</h5>
                                         <br><h5 class="results" style="display:none" id="orIngredients{{entry.name}}">{{entry.ingredients}}</h5>
                                         <br><h5 class="results" style="display:none" id="orNeeded{{entry.name}}">{{entry.time_needed}}</h5>
@@ -360,11 +380,21 @@
             var bools = ["and","or"];
             var types = ["Chef","Region","Recipe"];
             var count = 0;
+            var andTotal = 0;
+            var orTotal = 0;
             for(var i in arr){
                 var n = arr[i];
                 var mod = i%3;
                 var bNum = Math.floor(i/3);
                 i = parseInt(i);
+                if(bNum == 0){
+                    console.log(n);
+                    andTotal += n;
+                }
+                else if(bNum == 1){
+                    console.log(n);
+                    orTotal += n;
+                }
                 if(mod === 0 && bNum === 1)
                     count = 0;
                 if(n == 0){
@@ -380,6 +410,15 @@
                     else
                         document.getElementById("orNone").style.display = "block";
             }
+            var result = " result";
+            if(andTotal === 1)
+                document.getElementById("andHead").innerHTML = "AND: " + andTotal + result;
+            else
+                document.getElementById("andHead").innerHTML = "AND: " + andTotal + result + "s";
+            if(orTotal === 1)
+                document.getElementById("orHead").innerHTML = "OR: " + orTotal + result;
+            else
+                document.getElementById("orHead").innerHTML = "OR: " + orTotal + result + "s";
 
         };
         eraseNull();

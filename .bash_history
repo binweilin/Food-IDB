@@ -175,3 +175,6 @@ sudo pip install django-haystack
 cd ../
 ls
 virtualenv env
+ls
+cd foodsite
+ls

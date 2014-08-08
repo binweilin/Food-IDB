@@ -36,10 +36,6 @@
 
 		<div class = "navbar navbar-inverse navbar-static-top">
 			<div class = "container">
-
-
-				<div class = "collapse navbar-collapse navHeaderCollapse">
-
 				<div class = "navbar-header">
 					<a href = "/" class = "navbar-brand">Food IDB</a>
 
@@ -52,39 +48,28 @@
 					</button>
 				</div>
 
+				<div class = "collapse navbar-collapse navHeaderCollapse">
+
+
+
 					<ul class = "nav navbar-nav navbar-right">
 						<li class = "active"><a href = "/index">Home</a></li>
 						<li><a href = "/chefs">Chefs</a></li>
 						<li><a href = "/recipes">Recipes</a></li>
 						<li><a href = "/regions">Regions</a></li>
-						<li class = "dropdown">
-                        <li class=""><a href="/about">About</a></li>
-                        <li class=""><a href="/sochi">Sochi</a></li>
-
+						<li><a href="/about">About</a></li>
+                        <li><a href="/sochi">Sochi</a></li>
+                        <li>
 
                         	<form class="navbar-form navbar-right" role="search" action="/search/search_result" method="get">
                                 <div class="form-group">
                                     <input type="text" id="q" name="q" class="form-control" placeholder="">
-
                                 </div>
-                                <button type="submit" class="btn btn-default">Search</button>
+                                <button type="submit" class="btn btn-default">Search
 
-
+                                </button>
 
                             </form>
-
-
-
-                            <!--<span class="search-box">-->
-                            <!--<form id="searchForm" class="navbar-form navbar-right" method="get" action="/search/" role="search">-->
-                            <!--    <div class="input-group">-->
-                            <!--        <input class="form-control" placeholder="Search" name="q" id="q" type="text">-->
-                            <!--        <div class="input-group-btn">-->
-                            <!--            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>-->
-                            <!--        </div>-->
-                            <!--    </div>-->
-                            <!--</form>-->
-                            <!--</span>-->
 
 
                         </li>
@@ -111,7 +96,7 @@
 				<div class = "col-sm-4" align="center">
     			    <a href="/chefs" style="color: #333333; text-decoration: none">
             			<h3>Explore Chefs</h3>
-            			<img src = "/static/chefs/gordon_ramsay.jpg" "image not found" class = "img-rounded set-width">
+            			<img src = "/static/chefs/gordon_ramsay.jpg" "image not found" class = "square img-rounded set-width">
                     </a>
 					<!--<br><br>-->
 					<!--<a href = "/chefs" class = "btn btn-default">Explore Chefs</a>-->

@@ -28,6 +28,5 @@ urlpatterns = patterns('',
     (r'^api/chef/(?P<chef_pk>\w+)?', views.get_chef),
     (r'^api/region/(?P<region_pk>\w+)?', views.get_region),
     (r'^api/recipe/(?P<recipe_pk>\w+)?', views.get_recipe),
-    (r'^search/', include('haystack.urls')),
     (r'^search/search_result/?', views.search),
 )
