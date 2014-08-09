@@ -40,7 +40,7 @@
                     arr = region_fields;
                 else
                     return;
-
+                searchText = searchText.trim();
                 if(booleanType === "OR")
                     searchText = searchText.split(" ");
                 var found = false;
@@ -96,7 +96,7 @@
             };
 
             var highlight = function(searchText){
-                searchText = searchText.replace(/&quot;/g,"");
+                searchText = searchText.replace(/&quot;/g,"").trim();
                 var allTags = document.getElementsByClassName("results");
                 var allWords = searchText.split(" ");
                 for(var i = 0; i < allTags.length; i++){
