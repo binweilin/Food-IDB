@@ -1,3 +1,82 @@
+commit 584fbead1fe7726df047c16e06631457e53aaca8
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Sat Aug 9 01:37:40 2014 +0000
+
+    Adding last few changes to search result page
+
+commit fe65bd1e34987ebb52ff53358503e3ef2d7ae848
+Author: Samantha Cooper <skc853@cs.utexas.edu>
+Date:   Fri Aug 8 16:46:13 2014 -0500
+
+    Messed up last time. Adding IDB3 revised technical report
+
+commit 5c96a505ef9fdbb167ced74eda34ceb296979214
+Author: Samantha Cooper <skc853@cs.utexas.edu>
+Date:   Fri Aug 8 16:43:25 2014 -0500
+
+    Adding revised technical report for IDB3. Fixes #56
+
+commit c40cf40d7ccb09f5b5eb2ea8c688cdb5cfe120d5
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Fri Aug 8 18:35:12 2014 +0000
+
+    Almost done! We did a lot in this commit because we haven't been able to push in a while. Fixes #62, fixes #52, fixes #51, fixes #50, fixes #47, fixes #46
+
+commit c967902215a62f0b3eda35516e2dd49fb838bd0d
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Aug 7 22:23:35 2014 +0000
+
+    test
+
+commit 0cbf51b3164afb5a2e432a02999b47289be7483d
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Aug 7 01:22:46 2014 +0000
+
+    Search is sort of working, fixes #50, fixes #61
+
+commit dd4a109949616ad00000a2754210db686bc558ea
+Merge: 0487dda 8f61f69
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Aug 7 01:22:23 2014 +0000
+
+    Merge branch 'master' of https://github.com/jimmybradford/cs373-idb
+
+commit 0487dda093da837e681db7ebd24e2846b377be74
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Thu Aug 7 01:19:58 2014 +0000
+
+    Search is sort of working, fixes #50, fixes #61
+
+commit 8f61f69b268ca340d545a68f6838aa628bb75e47
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Mon Jul 28 17:19:15 2014 -0500
+
+    again
+
+commit f356dd7de70a5c94f8de6eab039cc333ea0dcfda
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Mon Jul 28 17:18:09 2014 -0500
+
+    update again zomg
+
+commit b941d94ff46493bd2b8f32c397dd59ec6074581d
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Mon Jul 28 17:14:05 2014 -0500
+
+    updated again
+
+commit d32d33e6f8ddc5a5e8587c601a8009ef1b4f8083
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Fri Jul 25 19:24:07 2014 +0000
+
+    Hopefully the final commit for IDB2. Added commit log, fixes #32
+
+commit 0f3985c6b1a7ce3a3144afd9da08d3bbb255e6be
+Author: jimmybradford <thefonnzy@gmail.com>
+Date:   Fri Jul 25 19:23:55 2014 +0000
+
+    Hopefully the final commit for IDB2. Added commit log, fixes #32
+
 commit b31d037012581029ebf3187434593cedfa735a5c
 Author: Samantha Cooper <skc853@cs.utexas.edu>
 Date:   Fri Jul 25 14:00:13 2014 -0500
